@@ -1,0 +1,43 @@
+{
+  "name": "landscrape",
+  "version": "1.0.0",
+  "description": "a web scraping application with geofencing capabilities",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -p --progress --config webpack.config.js",
+    "dev-build": "webpack --progress -d --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --progress -d --config webpack.config.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patrickcanny/Landscrape.git"
+  },
+  "keywords": [
+    "python",
+    "js",
+    "react",
+    "webpack"
+  ],
+  "author": "Patrick Canny, Ellis Springe, Liam Ormiston",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patrickcanny/Landscrape/issues"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
+  },
+  "homepage": "https://github.com/patrickcanny/Landscrape#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "webpack": "^3.8.1"
+  }
+}
