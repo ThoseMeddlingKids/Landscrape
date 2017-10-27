@@ -1,7 +1,15 @@
 import React from "react";
+import Hello from "./Hello";
+import {PageHeader} from "react-bootstrap";
 
 export default class App extends React.Component {
-  render(){
-    return <p> Hello, React! </p>;
+  render() {
+    return (
+      <PageHeader>
+        <div className = 'header-contents'>
+          <Hello name = 'Pat'/>
+        </div>
+      </PageHeader>
+    );
   }
 }
