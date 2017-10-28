@@ -8,13 +8,9 @@ app = Flask(__name__, static_folder="../static/dist", template_folder="../static
 def index():
     return render_template("index.html")
 
-@app.route("/hello")
-def hello():
-    return get_hello()
-
-def get_hello():
-    greeting_list = ['yo', 'hey', 'sup', 'skeddit']
-    return random.choice(greeting_list)
+@app.route("/search")
+def search():
+    return render_template("Search.html")
 
 if __name__ == "__main__":
     app.run()
