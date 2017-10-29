@@ -38,8 +38,18 @@ def search():
 # Currently returns a "402 Bad Request" Error
 @app.route('/handle_data', methods = ['POST'])
 def handle_data():
-    print("woah")
-    print(request.form['Search.html'])
+    if form.validate_on_submit():
+        data = request.form['query']
+    else:
+        return abort(400)
+
+## @Route "/about"
+#
+# Documentation
+# Renders HTML with Documentation
+@app.route('/about')
+def about():
+    return render_template("about.html")
 
 ## @Route "/searchresults"
 #

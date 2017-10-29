@@ -1,24 +1,9 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <title>Landscrape</title>
-  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+{% extends 'layout.html' %}
 
-</head>
-<body>
-
-      <div class="jumbotron">
-          <h1>Landscrape</h1>
-          <h3>Scrape the web for the best stuff near you!</h3><br />
-            <p><a class = "btn btn-lg btn-success" href ="search" role = "button">Let's Get Started</a></p>
-      </div>
-
-
-      <footer class="footer">
-          <p>&copy; Those Meddling Kids, 2017</p>
-      </footer>
-
-  </div>
-</body>
-</html>
+{% block body %}
+    <div class="jumbotron">
+        <h1>Landscrape</h1>
+        <h3>Scrape the web for the best stuff near you!</h3><br />
+          <p><a class = "btn btn-lg btn-success" href ="search" role = "button">Let's Get Started</a></p>
+    </div>
+{% endblock %}
