@@ -3,7 +3,8 @@
 # Server run File that provides the main interface between our app and th Server
 #Includes routing Information and Rendering of HTML
 import random
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session, logging
+from wtforms import Form, StringField, validators
 
 app = Flask(__name__, static_folder="../static/dist", template_folder="../static")
 app.debug = True
@@ -12,8 +13,23 @@ app.debug = True
 #Documentation for the Server
 #
 # @file server.py
-# Runs the Server that Landscrape runs on
+# Runs the Landscrape Main Server
 
+
+########################################################
+#                                       Classes
+########################################################
+## @Class InputForm
+#
+# Form that Takes the String(s) Given as Input
+class InputForm(Form):
+    searchquery = StringField(u'Enter Your Search:', validators = [validators.input_required()])
+
+
+
+########################################################
+#                                       ROUTES
+########################################################
 ## @Route "/"
 #
 # Main Landing Page for the App
@@ -22,14 +38,19 @@ app.debug = True
 def index():
     return render_template("index.html")
 
+
 ## @Route "/search"
 #
 # Search Page for Landscrape
 # Renders the Search HTML file
 # This is the Page where users can input search queries
-@app.route("/search")
+@app.route("/search", methods = ['GET','POST'])
 def search():
-    return render_template("Search.html")
+    form = InputForm(request.form)
+    if request.method == 'POST' and form.validate():
+        return render_template("Search.html")
+
+    return render_template("Search.html", form= form)
 
 ## @Route "/handle_data"
 #

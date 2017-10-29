@@ -7,11 +7,14 @@
       </div>
 
       <div class = "container">
-        <form action="{{url_for('handle_data')}}", method = "post">
+        {% from 'includes/_formhelper.html' import render_field %}
+        <form action="", method = "post">
+          <div class = "form-group">
+            {{render_field(form.searchquery, clas = "form-control")}}
+          </div>
           <p>
-            <label>What do you want to search for?</label> <br />
-            <input type ="text" />
-            <input type = "submit" />
+            <input type ="submit" class = "btn btn-primary" value = "Submit" />
+          </p>
         </form>
       </div>
       <div class = "container">
