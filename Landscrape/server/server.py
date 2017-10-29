@@ -3,7 +3,7 @@
 # Server run File that provides the main interface between our app and th Server
 #Includes routing Information and Rendering of HTML
 import random
-from flask import Flask, render_template, request, redirect, url_for, session, logging
+from flask import Flask, render_template, request, flash, redirect, url_for, session, logging
 from wtforms import Form, StringField, validators
 
 app = Flask(__name__, static_folder="../static/dist", template_folder="../static")
@@ -17,7 +17,7 @@ app.debug = True
 
 
 ########################################################
-#                                       Classes
+#                                       CLASSES
 ########################################################
 ## @Class InputForm
 #
@@ -26,6 +26,12 @@ class InputForm(Form):
     searchquery = StringField(u'Enter Your Search:', validators = [validators.input_required()])
 
 
+########################################################
+#                                       FUNCTIONS
+########################################################
+def HandleData(data):
+    app.logger.info('%s processed', data)
+    return data
 
 ########################################################
 #                                       ROUTES
@@ -48,21 +54,10 @@ def index():
 def search():
     form = InputForm(request.form)
     if request.method == 'POST' and form.validate():
-        return render_template("Search.html")
+        query = form.searchquery.data
+        HandleData(query)
 
     return render_template("Search.html", form= form)
-
-## @Route "/handle_data"
-#
-# Attempt at handling data using the Request Library
-# Unsure of how to actually do this.
-# Currently returns a "402 Bad Request" Error
-@app.route('/handle_data', methods = ['POST'])
-def handle_data():
-    if form.validate_on_submit():
-        data = request.form['query']
-    else:
-        return abort(400)
 
 ## @Route "/about"
 #
