@@ -10,7 +10,8 @@ app = Flask(__name__, static_folder="../static/dist", template_folder="../static
 app.debug = True
 
 ## @package Flask
-#Documentation for the Server
+# Documentation for the Server
+# Flask is a Microframework for Web Development thtat Utilizes Python
 #
 # @file server.py
 # Runs the Landscrape Main Server
@@ -29,6 +30,7 @@ class InputForm(Form):
 ########################################################
 #                                       FUNCTIONS
 ########################################################
+## @Function
 def HandleData(data):
     app.logger.info('%s processed', data)
     return data

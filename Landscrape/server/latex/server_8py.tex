@@ -1,0 +1,92 @@
+\hypertarget{server_8py}{}\section{server.\+py File Reference}
+\label{server_8py}\index{server.\+py@{server.\+py}}
+
+
+Server run File that provides the main interface between our app and th Server Includes routing Information and Rendering of H\+T\+ML.  
+
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classserver_1_1_input_form}{server.\+Input\+Form}}
+\begin{DoxyCompactList}\small\item\em C\+L\+A\+S\+S\+ES. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_flask}{Flask}}
+\begin{DoxyCompactList}\small\item\em Documentation for the Server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{server_8py_a003753350289a861bbd61d98d3d34827}\label{server_8py_a003753350289a861bbd61d98d3d34827}} 
+def {\bfseries server.\+Handle\+Data} (data)
+\item 
+def \mbox{\hyperlink{server_8py_ac0c6991e06b0b51c3f0c362c07224eaa}{server.\+index}} ()
+\begin{DoxyCompactList}\small\item\em R\+O\+U\+T\+ES. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{server_8py_aa301dd01a750c72f489b405731df9558}\label{server_8py_aa301dd01a750c72f489b405731df9558}} 
+def {\bfseries server.\+search} ()
+\item 
+def \mbox{\hyperlink{server_8py_a819a6298db7c07db8b46ecfddb782a8f}{server.\+about}} ()
+\begin{DoxyCompactList}\small\item\em \char`\"{}/about\char`\"{} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{server_8py_a82fe2bce594a2e1cfbb52613ed71dca3}\label{server_8py_a82fe2bce594a2e1cfbb52613ed71dca3}} 
+def {\bfseries server.\+process\+J\+S\+ON} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{server_8py_ad81539608721e4b8ffad6e7bb45dd34b}\label{server_8py_ad81539608721e4b8ffad6e7bb45dd34b}} 
+{\bfseries server.\+app} = Flask(\+\_\+\+\_\+name\+\_\+\+\_\+, static\+\_\+folder=\char`\"{}../static/dist\char`\"{}, template\+\_\+folder=\char`\"{}../static\char`\"{})
+\item 
+\mbox{\Hypertarget{server_8py_a43e48d45560e05a17f4716d8b28aa82a}\label{server_8py_a43e48d45560e05a17f4716d8b28aa82a}} 
+{\bfseries server.\+debug}
+\item 
+\mbox{\hyperlink{server_8py_a26c653098c4b10df9e71ee2da680daee}{server.\+methods}}
+\begin{DoxyCompactList}\small\item\em \char`\"{}/search\char`\"{} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Server run File that provides the main interface between our app and th Server Includes routing Information and Rendering of H\+T\+ML. 
+
+Runs the Landscrape Main Server.
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{server_8py_file_a819a6298db7c07db8b46ecfddb782a8f}\label{server_8py_file_a819a6298db7c07db8b46ecfddb782a8f}} 
+\index{server.\+py@{server.\+py}!about@{about}}
+\index{about@{about}!server.\+py@{server.\+py}}
+\subsubsection{\texorpdfstring{about()}{about()}}
+{\footnotesize\ttfamily def server.\+about (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\char`\"{}/about\char`\"{} 
+
+Documentation Renders H\+T\+ML with Documentation \mbox{\Hypertarget{server_8py_file_ac0c6991e06b0b51c3f0c362c07224eaa}\label{server_8py_file_ac0c6991e06b0b51c3f0c362c07224eaa}} 
+\index{server.\+py@{server.\+py}!index@{index}}
+\index{index@{index}!server.\+py@{server.\+py}}
+\subsubsection{\texorpdfstring{index()}{index()}}
+{\footnotesize\ttfamily def server.\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+R\+O\+U\+T\+ES. 
+
+\char`\"{}/\char`\"{}
+
+Main Landing Page for the App Renders Index from Static/index.\+html 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{server_8py_file_a26c653098c4b10df9e71ee2da680daee}\label{server_8py_file_a26c653098c4b10df9e71ee2da680daee}} 
+\index{server.\+py@{server.\+py}!methods@{methods}}
+\index{methods@{methods}!server.\+py@{server.\+py}}
+\subsubsection{\texorpdfstring{methods}{methods}}
+{\footnotesize\ttfamily server.\+methods}
+
+
+
+\char`\"{}/search\char`\"{} 
+
+\char`\"{}/searchresults\char`\"{}
+
+Search Page for Landscrape Renders the Search H\+T\+ML file This is the Page where users can input search queries
+
+Process Data from the Scraping function Renders H\+T\+ML with Results 
