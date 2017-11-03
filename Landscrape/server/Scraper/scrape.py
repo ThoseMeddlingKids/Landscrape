@@ -30,7 +30,7 @@ def get_results(search_params):
         sub_info['addr'] = address[18:].split('\n')[0]
 
     for i in info:
-        print info[i]
+        print i, "    ", info[i]
     print "\n\n",info
 
 
