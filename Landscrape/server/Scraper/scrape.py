@@ -29,9 +29,13 @@ def get_results(search_params):
         address = str(addr).split('<br/>')[0] + ', ' + str(addr).split('<br/>')[1]
         sub_info['addr'] = address[18:].split('\n')[0]
 
-    for i in info:
-        print i, "    ", info[i]
-    print "\n\n",info
+    #for i in info:
+    #    print i, "    ", info[i]
+    #print "\n\n",info
+    return info
 
 
-get_results(["burgers","lawrence","KS"])
+def print_stuff():
+    print "stuff"
+
+#yelp_info = get_results(["burgers","lawrence","KS"])
