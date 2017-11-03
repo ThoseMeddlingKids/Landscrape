@@ -1,8 +1,6 @@
 import urllib2
 from bs4 import BeautifulSoup as BS
 
-#import sys
-
 
 ##
 ## search_params = [term, city, state]
@@ -15,19 +13,25 @@ def get_results(search_params):
     soup = BS(page,"html.parser")
     search_results = soup.find_all('li',class_='regular-search-result')
 
-    mini_soup = search_results[0]
-
-    name = mini_soup.find("img",class_="photo-box-img").get('alt')
-    stars = mini_soup.find("img",class_="offscreen").get('alt')[:3]
-    tel = mini_soup.find("span",class_="biz-phone").text
-
     info = {}
-    info['name'] = str(name)
-    info['stars'] = str(stars)
-    info['tele'] = '(' + str(tel).split('(')[1].split('\n')[0]
 
-    print info
+    for mini_soup in search_results:
+
+        name = mini_soup.find("img",class_="photo-box-img").get('alt')
+        stars = mini_soup.find("img",class_="offscreen").get('alt')[:3]
+        tel = mini_soup.find("span",class_="biz-phone").text
+        addr = mini_soup.find("address")
+
+        info[str(name)] = {}
+        sub_info = info[str(name)]
+        sub_info['stars'] = str(stars)
+        sub_info['tele'] = '(' + str(tel).split('(')[1].split('\n')[0]
+        address = str(addr).split('<br/>')[0] + ', ' + str(addr).split('<br/>')[1]
+        sub_info['addr'] = address[18:].split('\n')[0]
+
+    for i in info:
+        print i
+    print "\n\n",info
 
 
-#sys.argv[1]
 get_results(["burgers","lawrence","KS"])
