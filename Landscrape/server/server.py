@@ -14,7 +14,7 @@ from wtforms import Form, StringField, validators
 ###
 from Scraper import scrape
 
-scrape.print_stuff()
+##scrape.print_stuff()
 
 app = Flask(__name__, static_folder="../static/dist", template_folder="../static")
 app.debug = True
@@ -44,10 +44,6 @@ class InputForm(Form):
 def HandleData(data):
     app.logger.info('%s processed', data)
     return data
-
-def HandleDictionary(_dict):
-    app.logger(_dict)
-    return _dict
 
 ########################################################
 #                                       ROUTES
@@ -87,9 +83,13 @@ def about():
 #
 # Process Data from the Scraping function
 # Renders HTML with Results
-@app.route('/searchresults', methods = ['GET', 'POST'])
-def searchresults():
-    HandleDictionary(scrape.get_results(["burgers","lawrence","KS"]))
+@app.route('/results', methods = ['GET', 'POST'])
+def results():
+    if request.method == 'GET':
+        py_dict = scrape.get_results(["burgers","lawrence","KS"])
+        HandleData(py_dict)
+
+    return render_template("results.html")
 
 
 ##Runs the Server
