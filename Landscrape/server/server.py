@@ -45,6 +45,10 @@ def HandleData(data):
     app.logger.info('%s processed', data)
     return data
 
+def HandleDictionary(_dict):
+    app.logger(_dict)
+    return _dict
+
 ########################################################
 #                                       ROUTES
 ########################################################
@@ -84,8 +88,9 @@ def about():
 # Process Data from the Scraping function
 # Renders HTML with Results
 @app.route('/searchresults', methods = ['GET', 'POST'])
-def processJSON():
-    dataToProcess = request.json
+def searchresults():
+    HandleDictionary(scrape.get_results(["burgers","lawrence","KS"]))
+
 
 ##Runs the Server
 if __name__ == "__main__":
