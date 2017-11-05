@@ -8,12 +8,18 @@ from bs4 import BeautifulSoup as BS
 class Scraper:
 
     def __init__(self,search_params):
-        self.search_term = search_params[0]
+        self.search_term = search_params[0].split(',')
         self.city = search_params[1]
         self.state = search_params[2]
+        self.query_info = {}
 
     def get_results(self):
-        yelp_url = "https://www.yelp.com/search?find_desc=" + self.search_term + "&find_loc=" + self.city + "%2C+" + self.state + "&ns=1"
+        for term in self.search_term:
+            self.query_info[term] = self.sub_get_results(term)
+        return self.query_info
+
+    def sub_get_results(self,term):
+        yelp_url = "https://www.yelp.com/search?find_desc=" + term + "&find_loc=" + self.city + "%2C+" + self.state + "&ns=1"
 
         page = urllib2.urlopen(yelp_url)
 
@@ -85,7 +91,7 @@ class Scraper:
 
         return info
 
-#yelp_info = Scraper(["burgers","lawrence","KS"])
-#infor = yelp_info.get_results()
-#for i in infor:
-#    print i,infor[i]
+yelp_info = Scraper(["burgers,ice","lawrence","KS"])
+infor = yelp_info.get_results()
+for i in infor:
+    print i,infor[i]
