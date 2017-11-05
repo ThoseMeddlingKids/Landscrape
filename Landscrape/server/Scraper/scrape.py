@@ -102,7 +102,7 @@ class Scraper:
 
         return info
 
-yelp_info = Scraper(["ice cream    ","San Francisco    ","KS"])
-infor = yelp_info.get_results()
-for i in infor:
-    print i,infor[i]
+#yelp_info = Scraper(["ice cream    ","San Francisco    ","KS"])
+#infor = yelp_info.get_results()
+#for i in infor:
+#    print i,infor[i]
