@@ -78,7 +78,8 @@ class Scraper:
                 web_addr = i.find('a').text
             if web_addr == "":
                 web_addr = "No Website"
-            sub_info['web_addr'] = str(web_addr)
+            sub_info['web_addr'] = web_addr.encode('utf-8')
+
 
             # Get/Set restaurant hours, if available
             hours = "No Hour Information"
