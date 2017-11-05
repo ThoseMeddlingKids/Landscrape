@@ -67,7 +67,8 @@ def search():
     form = InputForm(request.form)
     if request.method == 'POST' and form.validate():
         query = form.searchquery.data
-        HandleData(query)
+        py_dict = scrape.get_results([query,"lawrence","KS"])
+        HandleData(py_dict)
 
     return render_template("Search.html", form= form)
 
@@ -89,8 +90,7 @@ def results():
         py_dict = scrape.get_results(["burgers","lawrence","KS"])
         HandleData(py_dict)
 
-    return render_template("results.html")
-
+    return render_template('results.html', pyDict = py_dict)
 
 ##Runs the Server
 if __name__ == "__main__":
