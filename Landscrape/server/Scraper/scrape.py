@@ -17,17 +17,21 @@ class Scraper:
         # anticipate for multi word searches
         term = ""
         split_terms = self.search_term.split(' ')
-        #import pdb; pdb.set_trace()
-        if len(split_terms) > 1:
-            term = split_terms[0]
-            for i in xrange(1,len(split_terms)):
-                if split_terms[i] != "":
-                    term += "+" + split_terms[i]
-        else:
-            term = split_terms
+        term = split_terms[0]
+        for i in xrange(1,len(split_terms)):
+            if split_terms[i] != "":
+                term += "+" + split_terms[i]
+
+        # anticipate for multi word cities
+        city = ""
+        split_city = self.city.split(' ')
+        city = split_city[0]
+        for i in xrange(1,len(split_city)):
+            if split_city[i] != "":
+                city += "+" + split_city[i]
 
         # set the search url and get the BeautifulSoup information
-        yelp_url = "https://www.yelp.com/search?find_desc=" + term + "&find_loc=" + self.city + "%2C+" + self.state + "&ns=1"
+        yelp_url = "https://www.yelp.com/search?find_desc=" + term + "&find_loc=" + city + "%2C+" + self.state + "&ns=1"
 
         page = urllib2.urlopen(yelp_url)
 
@@ -48,7 +52,6 @@ class Scraper:
             web_addr = ""
             hours = ""
             price_range = ""
-
 
             # Get basic info
             name = mini_soup.find("img",class_="photo-box-img").get('alt')
@@ -99,7 +102,7 @@ class Scraper:
 
         return info
 
-#yelp_info = Scraper(["ice cream    ","lawrence","KS"])
-#infor = yelp_info.get_results()
-#for i in infor:
-#    print i,infor[i]
+yelp_info = Scraper(["ice cream    ","San Francisco    ","KS"])
+infor = yelp_info.get_results()
+for i in infor:
+    print i,infor[i]
