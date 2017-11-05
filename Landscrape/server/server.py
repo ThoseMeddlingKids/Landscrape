@@ -37,6 +37,13 @@ def HandleData(data):
     app.logger.info('%s processed', data)
     return data
 
+## @Function
+#
+# Creates a new python dictionary
+def CreateDict():
+    LandScrape = scrape.Scraper(["burgers","lawrence","KS"])
+    return LandScrape.get_results()
+
 ########################################################
 #                                       ROUTES
 ########################################################
@@ -79,8 +86,7 @@ def about():
 @app.route('/results', methods = ['GET', 'POST'])
 def results():
     if request.method == 'GET':
-        LandScrape = scrape.Scraper(["burgers","lawrence","KS"])
-        py_dict = LandScrape.get_results()
+        py_dict = CreateDict()
         HandleData(py_dict)
 
     return render_template('results.html', pyDict = py_dict)
