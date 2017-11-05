@@ -37,6 +37,13 @@ def HandleData(data):
     app.logger.info('%s processed', data)
     return data
 
+## @Function
+#
+# Creates a new python dictionary
+def CreateDict():
+    LandScrape = scrape.Scraper(["burgers","lawrence","KS"])
+    return LandScrape.get_results()
+
 ########################################################
 #                                       ROUTES
 ########################################################
@@ -59,10 +66,10 @@ def search():
     form = InputForm(request.form)
     if request.method == 'POST' and form.validate():
         query = form.searchquery.data
-        py_dict = scrape.get_results([query,"lawrence","KS"])
-        HandleData(py_dict)
+        HandleData(query)
+        return redirect(url_for('results'))
 
-    return render_template("Search.html", form= form)
+    return render_template('Search.html', form= form)
 
 ## @Route "/about"
 #
@@ -79,8 +86,7 @@ def about():
 @app.route('/results', methods = ['GET', 'POST'])
 def results():
     if request.method == 'GET':
-        LandScrape = scrape.Scraper(["burgers","lawrence","KS"])
-        py_dict = LandScrape.get_results()
+        py_dict = CreateDict()
         HandleData(py_dict)
 
     return render_template('results.html', pyDict = py_dict)
