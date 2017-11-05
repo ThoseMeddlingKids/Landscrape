@@ -1,6 +1,6 @@
 import urllib2
 from bs4 import BeautifulSoup as BS
-
+#import pdb; pdb.set_trace()
 
 ##
 ## search_params = [term, city, state]
@@ -13,7 +13,21 @@ class Scraper:
         self.state = search_params[2]
 
     def get_results(self):
-        yelp_url = "https://www.yelp.com/search?find_desc=" + self.search_term + "&find_loc=" + self.city + "%2C+" + self.state + "&ns=1"
+
+        # anticipate for multi word searches
+        term = ""
+        split_terms = self.search_term.split(' ')
+        #import pdb; pdb.set_trace()
+        if len(split_terms) > 1:
+            term = split_terms[0]
+            for i in xrange(1,len(split_terms)):
+                if split_terms[i] != "":
+                    term += "+" + split_terms[i]
+        else:
+            term = split_terms
+
+        # set the search url and get the BeautifulSoup information
+        yelp_url = "https://www.yelp.com/search?find_desc=" + term + "&find_loc=" + self.city + "%2C+" + self.state + "&ns=1"
 
         page = urllib2.urlopen(yelp_url)
 
@@ -85,7 +99,7 @@ class Scraper:
 
         return info
 
-#yelp_info = Scraper(["burgers","lawrence","KS"])
+#yelp_info = Scraper(["ice cream    ","lawrence","KS"])
 #infor = yelp_info.get_results()
 #for i in infor:
 #    print i,infor[i]
