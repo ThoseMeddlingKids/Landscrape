@@ -79,7 +79,7 @@ def about():
 @app.route('/results', methods = ['GET', 'POST'])
 def results():
     if request.method == 'GET':
-        LandScrape = Scraper(["burgers","lawrence","KS"])
+        LandScrape = scrape.Scraper(["burgers","lawrence","KS"])
         py_dict = LandScrape.get_results()
         HandleData(py_dict)
 
