@@ -59,10 +59,10 @@ def search():
     form = InputForm(request.form)
     if request.method == 'POST' and form.validate():
         query = form.searchquery.data
-        py_dict = scrape.get_results([query,"lawrence","KS"])
-        HandleData(py_dict)
+        HandleData(query)
+        return redirect(url_for('results'))
 
-    return render_template("Search.html", form= form)
+    return render_template('Search.html', form= form)
 
 ## @Route "/about"
 #
