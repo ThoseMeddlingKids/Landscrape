@@ -6,15 +6,7 @@ import random
 from flask import Flask, render_template, request, flash, redirect, url_for, session, logging
 from wtforms import Form, StringField, validators
 
-
-
-###
-# @LIAM this imports the Scraper
-# below is how you call a function
-###
 from Scraper import scrape
-
-##scrape.print_stuff()
 
 app = Flask(__name__, static_folder="../static/dist", template_folder="../static")
 app.debug = True
@@ -87,7 +79,8 @@ def about():
 @app.route('/results', methods = ['GET', 'POST'])
 def results():
     if request.method == 'GET':
-        py_dict = scrape.get_results(["burgers","lawrence","KS"])
+        LandScrape = Scraper(["burgers","lawrence","KS"])
+        py_dict = LandScrape.get_results()
         HandleData(py_dict)
 
     return render_template('results.html', pyDict = py_dict)
