@@ -40,8 +40,8 @@ def HandleData(data):
 ## @Function
 #
 # Creates a new python dictionary
-def CreateDict():
-    LandScrape = scrape.Scraper(["burgers","lawrence","KS"])
+def CreateDict(name):
+    LandScrape = scrape.Scraper([name,"lawrence","KS"])
     return LandScrape.get_results()
 
 ########################################################
@@ -67,7 +67,11 @@ def search():
     if request.method == 'POST' and form.validate():
         query = form.searchquery.data
         HandleData(query)
-        return redirect(url_for('results'))
+        # 'session' stores the query in order to be used on a different page.
+        # in this case it is the results page that must recall this info
+        # think of session as a cookie.
+        session['query'] = query
+        return redirect(url_for('results', query=query))
 
     return render_template('Search.html', form= form)
 
@@ -86,11 +90,17 @@ def about():
 @app.route('/results', methods = ['GET', 'POST'])
 def results():
     if request.method == 'GET':
-        py_dict = CreateDict()
+        # query being set to what was stored in the session
+        query = session['query']
+        py_dict = CreateDict(query)
         HandleData(py_dict)
 
     return render_template('results.html', pyDict = py_dict)
 
 ##Runs the Server
 if __name__ == "__main__":
+    # setting key for the session in order to pass the search query to the results page
+    # this is just initialization info. shouldn't need to ever touch this.
+    app.secret_key = 'super secret key'
+    app.config['SESSION_TYPE'] = 'filesystem'
     app.run()
