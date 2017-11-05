@@ -60,7 +60,7 @@ class Scraper:
             addr = mini_soup.find("address")
 
             # Set basic info
-            import pdb; pdb.set_trace()
+            #import pdb; pdb.set_trace()
             info[name] = {}
             sub_info = info[name]
             sub_info['stars'] = str(stars)
@@ -90,6 +90,8 @@ class Scraper:
             except TypeError:
                 pass
             except AttributeError:
+                pass
+            except IndexError:
                 pass
             sub_info['hours'] = str(hours)
 
