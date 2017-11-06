@@ -99,6 +99,10 @@ def results():
 
     return render_template('results.html', pyDict = py_dict)
 
+@app.route('/serverDoc')
+def serverDoc():
+    return render_template("serverDoc.html")
+
 ##Runs the Server
 if __name__ == "__main__":
     # setting key for the session in order to pass the search query to the results page
