@@ -1,19 +1,39 @@
+## @file scrape.py
+#
+# File that contains all scraping functionality
 import urllib2
 from bs4 import BeautifulSoup as BS
-#import re
 #import pdb; pdb.set_trace()
 #inport code; code.interact()
 
-##
-## search_params = [term, city, state]
-##
+
+########################################################
+#                       CLASSES
+########################################################
+
+## @Class Scraper
+#
+# Scraping class that takes the search parameters as an input_required
 class Scraper:
 
+    ####################################################
+    #                   SUB-FUNCTIONS
+    ####################################################
+
+    ## @Function
+    #
+    # Constructor
+    # @param self The object pointer
+    # @param search_params The array of search parameters
     def __init__(self,search_params):
         self.search_term = search_params[0]
         self.city = search_params[1]
         self.state = search_params[2]
 
+    ## @Function
+    #
+    # get_results
+    # @param self The object pointer
     def get_results(self):
 
         # anticipate for multi word searches
