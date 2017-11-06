@@ -14,12 +14,13 @@ Landscrape utilizes a web scraper that returns highly rated attractions in a giv
 2. Use the Command `source Landscrape/bin/activate` to launch the Virtual Environment
 3. Use Command `pip install flask` to get the Flask Module.
 4. Use Command `pip install Flask-WTF` to get the WTForms module.
-5. Use `python server.py` to launch the server, and navigate to the local 
+5. Use Command `pip install bs4` to get the BeautifulSoup module.
+6. Use `python server.py` to launch the server, and navigate in a browser to the localhost port indicated 
 
 As mentioned, you can install Flask via pip inside of a Python Virtual Environment. In order to do this,
 ensure that you have virtualenv version 15.1.0 or later(you can check with `vitualenv --version`). You can activate
 the Virtual Environment by navigating to the `server` folder and typing `source Landscrape/bin/activate`. You can
-deactivate the virtualenv at any time using command `deactivate`. 
+deactivate the virtualenv at any time using command `deactivate`.
 
 # Running the Application
 1. Clone this repository, navigate to `Landscrape/server` and type `python server.py` to run the server
@@ -30,4 +31,4 @@ deactivate the virtualenv at any time using command `deactivate`.
 - Flask: http://flask.pocoo.org/docs/0.12/
 - Doxygen: http://www.stack.nl/~dimitri/doxygen/
 - WTForms: https://wtforms.readthedocs.io/
-- Yelp API: https://www.yelp.com/developers/documentation/v2/overview
+- Yelp: https://www.yelp.com/

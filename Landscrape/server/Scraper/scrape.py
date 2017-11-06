@@ -44,9 +44,7 @@ class Scraper:
 
         for mini_soup in search_results:
 
-            #################
             # Set values to empty string, in case of overlap
-            #################
             name = ""
             stars = ""
             tel = ""
@@ -67,7 +65,6 @@ class Scraper:
             sub_info['tele'] = '(' + str(tel).split('(')[1].split('\n')[0]
 
             # Get/Set address
-            # get positions of inside <br> or <br/>, address is everything around it
             addr = str(mini_soup.find("address"))[18:len(addr)-18]
             pos1 = addr.find('<')
             pos2 = addr.find('>')
