@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['methods',['methods',['../server_8py.html#a26c653098c4b10df9e71ee2da680daee',1,'server']]]
+  ['app',['app',['../namespaceserver_1_1server.html#abe540ab6e7c9bffd61dda91273e699e2',1,'server::server']]]
 ];

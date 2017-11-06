@@ -32,12 +32,14 @@ class InputForm(Form):
 ########################################################
 #                                       FUNCTIONS
 ########################################################
-## @Function
+## @File Handle
+#
+## Deprecated
 def HandleData(data):
     app.logger.info('%s processed', data)
     return data
 
-## @Function
+## Function
 #
 # Creates a new python dictionary
 def CreateDict(name):
@@ -47,7 +49,7 @@ def CreateDict(name):
 ########################################################
 #                                       ROUTES
 ########################################################
-## @Route "/"
+## Class "/"
 #
 # Main Landing Page for the App
 # Renders Index from Static/index.html
@@ -56,7 +58,7 @@ def index():
     return render_template("index.html")
 
 
-## @Route "/search"
+## Class "/search"
 #
 # Search Page for Landscrape
 # Renders the Search HTML file
@@ -75,15 +77,15 @@ def search():
 
     return render_template('Search.html', form= form)
 
-## @Route "/about"
+## Function "/about"
 #
 # Documentation
-# Renders HTML with Documentation
+# Renders HTML with Documentation links
 @app.route('/about')
 def about():
     return render_template("about.html")
 
-## @Route "/searchresults"
+## Function "/searchresults"
 #
 # Process Data from the Scraping function
 # Renders HTML with Results

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['server_2epy',['server.py',['../server_8py.html',1,'']]]
+  ['flask',['Flask',['../namespace_flask.html',1,'']]]
 ];

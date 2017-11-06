@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['index',['index',['../server_8py.html#ac0c6991e06b0b51c3f0c362c07224eaa',1,'server']]],
-  ['inputform',['InputForm',['../classserver_1_1_input_form.html',1,'server']]]
+  ['createdict',['CreateDict',['../namespaceserver_1_1server.html#a06b6b48a36458a5e63d37667433c2080',1,'server::server']]]
 ];
