@@ -34,6 +34,7 @@ class Scraper:
     #
     # get_results
     # @param self The object pointer
+    # @return info Nested dictionary, { result1 : { info }, ...}
     def get_results(self):
 
         # anticipate for multi word searches
@@ -60,6 +61,7 @@ class Scraper:
         soup = BS(page,"html.parser")
         search_results = soup.find_all('li',class_='regular-search-result')
 
+        # initialize the return type
         info = {}
 
         for mini_soup in search_results:
@@ -127,6 +129,9 @@ class Scraper:
                 pass
             sub_info["price"] = price
 
+        # return type is a nested dictionary of a search
+        #    result and a dictionary with its corresponding
+        #    information
         return info
 
 #yelp_info = Scraper(["ice cream    ","San Francisco    ","KS"])
