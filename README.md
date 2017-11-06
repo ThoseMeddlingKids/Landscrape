@@ -32,3 +32,11 @@ deactivate the virtualenv at any time using command `deactivate`.
 - Doxygen: http://www.stack.nl/~dimitri/doxygen/
 - WTForms: https://wtforms.readthedocs.io/
 - Yelp: https://www.yelp.com/
+
+# Documentation
+You will need to have cloned/forked our repo (which you should have done to run our app).
+
+- Server Documentation: Navigate to `Landscrape/server/html/index.html` and open that file with a browser. 
+- Scraper Documentation: Navigate to `Landscrape/server/Scraper/html/index.html` and open that file with a browser.
+
+From there you can use the navigation bar and go to `Namespaces` then `Namespace List` click on the bottom-most `server` to see all of our classes, functions, variables, etc.
