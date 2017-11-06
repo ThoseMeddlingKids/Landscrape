@@ -1,6 +1,8 @@
 import urllib2
 from bs4 import BeautifulSoup as BS
+#import re
 #import pdb; pdb.set_trace()
+#inport code; code.interact()
 
 ##
 ## search_params = [term, city, state]
@@ -57,16 +59,20 @@ class Scraper:
             name = mini_soup.find("img",class_="photo-box-img").get('alt')
             stars = mini_soup.find("img",class_="offscreen").get('alt')[:3]
             tel = mini_soup.find("span",class_="biz-phone").text
-            addr = mini_soup.find("address")
 
             # Set basic info
-            #import pdb; pdb.set_trace()
             info[name] = {}
             sub_info = info[name]
             sub_info['stars'] = str(stars)
             sub_info['tele'] = '(' + str(tel).split('(')[1].split('\n')[0]
-            address = str(addr).split('<br/>')[0] + ', ' + str(addr).split('<br/>')[1]
-            sub_info['addr'] = address[18:].split('\n')[0]
+
+            # Get/Set address
+            # get positions of inside <br> or <br/>, address is everything around it
+            addr = str(mini_soup.find("address"))[18:len(addr)-18]
+            pos1 = addr.find('<')
+            pos2 = addr.find('>')
+            address = addr[:pos1] + ', ' + addr[pos2+1:]
+            sub_info['addr'] = address
 
             # Get page-specific info, store in sub_soup
             sub_url = "https://www.yelp.com" + mini_soup.find("a",class_="biz-name js-analytics-click").get("href")
@@ -106,7 +112,10 @@ class Scraper:
 
         return info
 
-#yelp_info = Scraper(["ice cream    ","San Francisco    ","KS"])
-#infor = yelp_info.get_results()
+queries = ["fi1ou23o87","!@rq094","ajlsk0`~iouav9","'","<>","/76w","+_="]
+for i in queries:
+    yelp_info = Scraper(["ice cream    ","San Francisco    ","KS"])
+    print i
+    infor = yelp_info.get_results()
 #for i in infor:
 #    print i,infor[i]
