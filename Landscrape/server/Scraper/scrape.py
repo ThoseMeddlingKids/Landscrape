@@ -26,7 +26,7 @@ class Scraper:
     # @param self The object pointer
     # @param search_params The array of search parameters
     def __init__(self,search_params):
-        self.search_term = search_params[0]
+        self.search_term = search_params[0].split(',')
         self.city = search_params[1]
         self.state = search_params[2]
 
@@ -79,15 +79,24 @@ class Scraper:
 
         return term
 
+    def get_results(self):
+
+        all_results = {}
+
+        for i in self.search_term:
+            all_results[i] = self.sub_get_results(i)
+
+        return all_results
+
     ## @Function
     #
     # get_results
     # @param self The object pointer
     # @return info Nested dictionary, { result1 : { info }, ...}
-    def get_results(self):
+    def sub_get_results(self,sub_term):
 
         # anticipate for multi word searches
-        term = self.format_for_url(self.search_term)
+        term = self.format_for_url(sub_term)
 
         # anticipate for multi word cities
         city = self.format_for_url(self.city)
@@ -153,7 +162,7 @@ class Scraper:
         #    information
         return info
 
-#yelp_info = Scraper(["burgers","Lawrence","KS"])
-#infor = yelp_info.get_results()
-#for i in infor:
-#    print i
+yelp_info = Scraper(["burgers,ice cream","Lawrence","KS"])
+infor = yelp_info.get_results()
+for i in infor:
+    print i,infor[i]
