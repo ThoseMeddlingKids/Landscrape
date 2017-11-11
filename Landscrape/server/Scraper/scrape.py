@@ -30,6 +30,12 @@ class Scraper:
         self.city = search_params[1]
         self.state = search_params[2]
 
+    ## @Function
+    #
+    # get_sub_page_info
+    # @param self The object pointer
+    # @param sub_dict The dictionary for information to be added to
+    # @param search_params The array of search parameters
     def get_sub_page_info(self,sub_dict):
 
         # get sub page
@@ -69,9 +75,15 @@ class Scraper:
 
         return sub_dict
 
-    def format_for_url(self,search_term):
+    ## @Function
+    #
+    # format_for_url
+    # @param self The object pointer
+    # @param format_term A string value
+    # @return all_results Dictionary of search terms and info { term1 : [ info ], ...}
+    def format_for_url(self,format_term):
 
-        split_terms = search_term.split(' ')
+        split_terms = format_term.split(' ')
         term = split_terms[0]
         for i in xrange(1,len(split_terms)):
             if split_terms[i] != "":
@@ -79,6 +91,11 @@ class Scraper:
 
         return term
 
+    ## @Function
+    #
+    # get_results
+    # @param self The object pointer
+    # @return all_results Dictionary of search terms and info { term1 : [ info ], ...}
     def get_results(self):
 
         all_results = {}
@@ -90,9 +107,10 @@ class Scraper:
 
     ## @Function
     #
-    # get_results
+    # sub_get_results
     # @param self The object pointer
-    # @return info Nested dictionary, { result1 : { info }, ...}
+    # @param sub_term A string search value
+    # @return info Ordered list of dictionaries
     def sub_get_results(self,sub_term):
 
         # anticipate for multi word searches
@@ -118,6 +136,7 @@ class Scraper:
         else:
             results = len(search_results)
 
+        # scrape the results and store them in a list
         for n in xrange(0,results):
 
             mini_soup = search_results[n]
@@ -152,9 +171,7 @@ class Scraper:
             # Get page-specific info, store in sub_soup
             sub_info["sub_url"] = "https://www.yelp.com" + mini_soup.find("a",class_="biz-name js-analytics-click").get("href")
 
-            #
-            # sub_info = self.get_sub_page_info(sub_info)
-
+            # append the dictionary to the list
             info.append(sub_info)
 
         # return type is a nested dictionary of a search
@@ -162,7 +179,7 @@ class Scraper:
         #    information
         return info
 
-yelp_info = Scraper(["burgers,ice cream","Lawrence","KS"])
-infor = yelp_info.get_results()
-for i in infor:
-    print i,infor[i]
+#yelp_info = Scraper(["burgers,ice cream","Lawrence","KS"])
+#infor = yelp_info.get_results()
+#for i in infor:
+#    print i,infor[i]
