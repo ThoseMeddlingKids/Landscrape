@@ -1,24 +1,25 @@
-{% extends 'layout.html' %}
-
-{% block body %}
+{% extends 'layout.html' %} {% block body %}
 <div class="jumbotron">
-          <h1>Landscrape</h1>
-          <h3>Scrape the web for the best stuff near you!</h3><br />
-      </div>
+  <h1>Landscrape</h1>
+  <h3>Scrape the web for the best stuff near you!</h3><br />
+</div>
 
-      <div class = "container">
-        {% from 'includes/_formhelper.html' import render_field %}
-        <form action="", method = "post">
-          <div id = "dynamicInput" class = "form-group">
-            {{render_field(form.searchquery, class = "form-control")}}
-          </div>
-          <input type = "button" value = "Add Input" onClick = "addInput('dynamicInput');" />
-          <p>
-            <input type ="submit" class = "btn btn-primary" value = "Submit" />
-          </p>
-        </form>
+<div class="container">
+  <div class = "loader"></div>
+  <div>
+    {% from 'includes/_formhelper.html' import render_field %}
+    <form action="" method="post">
+      <div class="form-group">
+        {{render_field(form.searchquery, class = "form-control")}}
       </div>
-      <div class = "container">
-        <br /><br /><br /><br />
-      </div>
+      <input type="button" value="Add Input" onClick="addInput('dynamicInput');" />
+      <p>
+        <input type="submit" class="btn btn-primary" value="Submit" />
+      </p>
+    </form>
+  </div>
+</div>
+<div class="container">
+  <br /><br /><br /><br />
+</div>
 {% endblock %}

@@ -8,7 +8,7 @@ from wtforms import Form, StringField, validators
 
 from Scraper import scrape
 
-app = Flask(__name__, static_folder="../static/dist", template_folder="../static")
+app = Flask(__name__, static_folder="../static", template_folder="../static")
 app.debug = True
 
 ## @package Flask
@@ -73,8 +73,7 @@ def search():
         # in this case it is the results page that must recall this info
         # think of session as a cookie.
         session['query'] = query
-        return redirect(url_for('results', query=query))
-
+        return redirect(url_for('loading'))
     return render_template('Search.html', form= form)
 
 ## Function "/about"
@@ -85,19 +84,22 @@ def search():
 def about():
     return render_template("about.html")
 
+
+@app.route('/loading', methods = ['GET', 'POST'])
+def loading():
+    return render_template("loadingpage.html")
+
 ## Function "/searchresults"
 #
 # Process Data from the Scraping function
 # Renders HTML with Results
 @app.route('/results', methods = ['GET', 'POST'])
 def results():
-    if request.method == 'GET':
-        # query being set to what was stored in the session
-        query = session['query']
-        py_dict = CreateDict(query)
-        HandleData(py_dict)
-
-    return render_template('results.html', pyDict = py_dict)
+    # query being set to what was stored in the session
+    query = session['query']
+    py_dict = CreateDict(query)
+    HandleData(py_dict)
+    return render_template("results.html", pyDict = py_dict)
 
 ##Runs the Server
 if __name__ == "__main__":
