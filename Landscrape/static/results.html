@@ -6,10 +6,11 @@
           <h3>Scrape the web for the best stuff near you!</h3><br />
 </div>
 
-{% for dict in pyDict.iteritems() %}
+{% for key in pyDict %}
 
-    <div>{{dict[0]}}</div>
-    
+    <br><div>{{key}}</div><br>
+    <div>{{pyDict[key]}}</div>
+
 {% endfor %}
 
 {% endblock %}
