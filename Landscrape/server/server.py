@@ -28,6 +28,15 @@ app.debug = True
 class InputForm(Form):
     searchquery = StringField(u'Enter Your Search:', validators = [validators.input_required()])
 
+class DynamicForm(Form):
+    @classmethod
+    def append_field(cls, name, field):
+        setattr(cls, name, field)
+        return cls
+
+
+
+
 
 ########################################################
 #                                       FUNCTIONS
@@ -97,8 +106,11 @@ def loading():
 def results():
     # query being set to what was stored in the session
     query = session['query']
-    py_dict = CreateDict(query)
-    HandleData(py_dict)
+    try:
+        py_dict = CreateDict(query)
+        HandleData(py_dict)
+    except:
+        return '<h1> ERROR ENCOUNTERED: Invalid Character in Input </h1>'
     return render_template("results.html", pyDict = py_dict)
 
 ##Runs the Server
