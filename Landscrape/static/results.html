@@ -12,10 +12,16 @@
 
 <body>
 
-  {% block body %} {% for key in pyDict %}
+  {% block body %} 
+    {% for key in pyDict %}
 
-  <br>
-  <div>{{key}}</div><br>
-  <div>{{pyDict[key]}}</div>
+    <br>
+    <div>{{key}}</div><br>
+    {% for dict in pyDict[key] %}
+      <div>{{dict}}</div><br>
+    {% endfor %}
+    <!-- <div>{{pyDict[key]}}</div> -->
+    
 
-  {% endfor %} {% endblock %}
+    {% endfor %} 
+  {% endblock %}
