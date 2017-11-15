@@ -35,7 +35,7 @@ class Scraper:
     # get_sub_page_info
     # @param self The object pointer
     # @param sub_dict The dictionary for information to be added to
-    # @param search_params The array of search parameters
+    # @return dictionary sub dict with new info website, hour info, price info
     def get_sub_page_info(self,sub_dict):
 
         # get sub page
