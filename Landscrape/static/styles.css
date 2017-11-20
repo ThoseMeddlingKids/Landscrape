@@ -5,3 +5,8 @@
     z-index: 99999;
     position: fixed;
 }
+.results {
+  background-color: lightgrey;
+  padding: 2%;
+  font-family: Verdana-bold;
+}
