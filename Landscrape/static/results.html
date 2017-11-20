@@ -19,7 +19,10 @@
     <div>Search results for {{key}}</div><br>
     {% for dict in pyDict[key] %}
       <!-- <div>{{dict}}</div><br> -->
-      <div class="results">{{dict['name']}}</div><br>
+      <div class="results">
+        {{dict['name']}} {{dict['stars']}}/5.0 <br>
+        {{dict['addr']}}
+      </div><br>
     {% endfor %}
     <!-- <div>{{pyDict[key]}}</div> -->
 
