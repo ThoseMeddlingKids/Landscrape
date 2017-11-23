@@ -14,7 +14,7 @@ Landscrape utilizes a web scraper that returns highly rated attractions in a giv
 2. In a terminal, execute `sudo bash start prep`. This will install the necessary dependencies
 
 As mentioned, you can install Flask via pip inside of a Python Virtual Environment. In order to do this,
-ensure that you have virtualenv version 15.1.0 or later(you can check with `vitualenv --version`). You can activate
+ensure that you have virtualenv version 15.1.0 or later(you can check with `virtualenv --version`). You can activate
 the Virtual Environment by navigating to the `server` folder and typing `source Landscrape/bin/activate`. You can
 deactivate the virtualenv at any time using command `deactivate`.
 
