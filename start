@@ -1,0 +1,32 @@
+#!/bin/bash
+
+################################
+#  Lanscrape installer script  #
+################################
+
+if [ "$1" == "prep" ]; then
+
+  # check privileges
+  if [ "$(echo $UID)" != "0" ]; then
+    echo -e "Please run with sudo privileges \nTry: sudo !!\n"
+    exit
+  fi
+
+  # install dependencies, python
+  sudo apt --assume-yes install python
+  pip install virtualenv
+  source ./Landscrape/server/bin/activate
+  pip install flask
+  pip install Flask-WTF
+  pip install bs4
+
+else
+  {
+    # start the server
+    python Landscrape/server/server.py
+  } || {
+    # if that command fails, show the usage
+    echo -e "\n\nUsage: sudo bash start prep (installs dependencies)\n"
+    echo -e "       bash start      (launches server)\n"
+  }
+fi
