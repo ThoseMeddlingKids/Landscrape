@@ -8,5 +8,11 @@
 .results {
   background-color: lightgrey;
   padding: 2%;
+  width: 33.33%;
+  float: left;
+  margin: 10px;
   font-family: Verdana-bold;
+}
+.container {
+  margin: 10px;
 }

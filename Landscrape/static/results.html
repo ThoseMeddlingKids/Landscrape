@@ -14,18 +14,13 @@
 
   {% block body %}
     {% for key in pyDict %}
-
-    <br>
-    <div>Search results for {{key}}</div><br>
-    {% for dict in pyDict[key] %}
-      <!-- <div>{{dict}}</div><br> -->
-      <div class="results">
-        {{dict['name']}} {{dict['stars']}}/5.0 <br>
-        {{dict['addr']}}
-      </div><br>
-    {% endfor %}
-    <!-- <div>{{pyDict[key]}}</div> -->
-
-
+      <div class="search">
+        Search results for {{key}} <br>
+        {% for dict in pyDict[key] %}
+          <div class="results">
+            {{dict['name']}} {{dict['stars']}}/5.0 <br> {{dict['addr']}}
+          </div>
+        {% endfor %}
+      </div>
     {% endfor %}
   {% endblock %}
