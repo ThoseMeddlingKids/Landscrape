@@ -15,7 +15,7 @@
   {% block body %}
     {% for key in pyDict %}
       <div class="search">
-        Search results for {{key}} <br>
+        <p>Search results for {{key}}</p>
         {% for dict in pyDict[key] %}
           <div class="results">
             {{dict['name']}} {{dict['stars']}}/5.0 <br> {{dict['addr']}}
