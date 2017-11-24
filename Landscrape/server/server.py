@@ -4,7 +4,7 @@
 #Includes routing Information and Rendering of HTML
 import random
 from flask import Flask, render_template, request, flash, redirect, url_for, session, logging
-from wtforms import Form, StringField, validators
+from wtforms import Form, StringField, SelectField, validators
 
 from Scraper import scrape
 
@@ -26,7 +26,9 @@ app.debug = True
 #
 # Form that Takes the String(s) Given as Input
 class InputForm(Form):
-    searchquery = StringField(u'Enter Your Search:', validators = [validators.input_required()])
+    search_query = StringField(u'Enter Your Search:', validators = [validators.input_required()])
+    search_state = SelectField(u'State:', choices=[('KS', 'Kansas'), ('MO', 'Missouri')])
+    search_city = StringField(u'City:', validators = [validators.input_required()])
 
 class DynamicForm(Form):
     @classmethod
@@ -51,8 +53,8 @@ def HandleData(data):
 ## Function
 #
 # Creates a new python dictionary
-def CreateDict(name):
-    LandScrape = scrape.Scraper([name,"lawrence","KS"])
+def CreateDict(query, city, state):
+    LandScrape = scrape.Scraper([query,city,state])
     return LandScrape.get_results()
 
 ########################################################
@@ -76,12 +78,16 @@ def index():
 def search():
     form = InputForm(request.form)
     if request.method == 'POST' and form.validate():
-        query = form.searchquery.data
-        HandleData(query)
+        query = form.search_query.data
+        state = form.search_state.data
+        city = form.search_city.data
+        HandleData([query,city,state])
         # 'session' stores the query in order to be used on a different page.
         # in this case it is the results page that must recall this info
         # think of session as a cookie.
         session['query'] = query
+        session['state'] = state
+        session['city'] = city
         return redirect(url_for('loading'))
     return render_template('Search.html', form= form)
 
@@ -106,8 +112,10 @@ def loading():
 def results():
     # query being set to what was stored in the session
     query = session['query']
+    city = session['city']
+    state = session['state']
     try:
-        py_dict = CreateDict(query)
+        py_dict = CreateDict(query, city, state)
         HandleData(py_dict)
     except:
         return '<h1> ERROR ENCOUNTERED: Invalid Character in Input </h1>'

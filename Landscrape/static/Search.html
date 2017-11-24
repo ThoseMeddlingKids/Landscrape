@@ -10,7 +10,9 @@
     {% from 'includes/_formhelper.html' import render_field %}
     <form action="" method="post">
       <div class="form-group">
-        {{render_field(form.searchquery, class = "form-control")}}
+        {{render_field(form.search_query, class = "form-control")}}
+        {{render_field(form.search_state, class = "form-control")}}
+        {{render_field(form.search_city, class = "form-control")}}
       </div>
       <input type="button" value="Add Input" onClick="addInput('dynamicInput');" />
       <p>
