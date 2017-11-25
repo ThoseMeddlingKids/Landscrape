@@ -178,8 +178,3 @@ class Scraper:
         #    result and a dictionary with its corresponding
         #    information
         return info
-
-#yelp_info = Scraper(["burgers,ice cream","Lawrence","KS"])
-#infor = yelp_info.get_results()
-#for i in infor:
-#    print i,infor[i]
