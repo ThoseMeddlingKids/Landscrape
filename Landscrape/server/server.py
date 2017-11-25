@@ -24,20 +24,11 @@ app.debug = True
 ########################################################
 ## @Class InputForm
 #
-# Form that Takes the String(s) Given as Input
+# Form that Takes the String(s) Given as Input and passes them into the dictionary
 class InputForm(Form):
-    search_query = StringField(u'Enter Your Search:', validators = [validators.input_required()])
+    search_query = StringField(u'Enter Your Search:', render_kw={"placeholder": "Please Enter Queries as a Comma-Seperated list."}, validators = [validators.input_required()])
     search_state = SelectField(u'State:', choices=[('AL','Alabama'), ('AK', 'Alaska'), ('AZ', 'Arizona'), ('AR', 'Arkansas'),('CA', 'California'), ('CO', 'Colorado'), ('CT', 'Connecticut'), ('DE', 'Delaware'),('FL', 'Florida'), ('GA', 'Georgia'), ('HI', 'Hawaii'), ('ID', 'Idaho'), ('IL', 'Illinois'), ('IN', 'Indiana'), ('IA', 'Iowa'), ('KS', 'Kansas'), ('KY', 'Kentucky'), ('LA', 'Louisiana'), ('ME', 'Maine'), ('MD', 'Maryland'), ('MA', 'Massachusetts'), ('MI', 'Michigan'), ('MN', 'Minnesota'), ('MS', 'Mississippi'), ('MO', 'Missouri'), ('MT', 'Montana'), ('NE', 'Nebraska'), ('NV', 'Nevada'), ('NH', 'New Hampshire'), ('NJ', 'New Jersey'), ('NM', 'New Mexico'), ('NY', 'New York'), ('NC', 'North Carolina'), ('ND', 'North Dakota'), ('OH', 'Ohio'), ('OK', 'Oklahoma'), ('OR', 'Oregon'), ('PA', 'Pennsylvania'), ('RI', 'Rhode Island'), ('SC', 'South Carolina'), ('SD', 'South Dakota'), ('TN', 'Tennessee'), ('TX', 'Texas'), ('UT', 'Utah'), ('VT', 'Vermont'), ('VA', 'Virginia'), ('WA', 'Washington'), ('WV', 'West Virginia'), ('WI', 'Wisconsin'), ('WY', 'Wyoming')], default='KS')
     search_city = StringField(u'City:', validators = [validators.input_required()], default="Lawrence")
-
-class DynamicForm(Form):
-    @classmethod
-    def append_field(cls, name, field):
-        setattr(cls, name, field)
-        return cls
-
-
-
 
 
 ########################################################
@@ -52,7 +43,7 @@ def HandleData(data):
 
 ## Function
 #
-# Creates a new python dictionary
+# Creates a new python dictionary with the results from a search query.
 def CreateDict(query, city, state):
     LandScrape = scrape.Scraper([query,city,state])
     return LandScrape.get_results()
@@ -118,7 +109,7 @@ def results():
         py_dict = CreateDict(query, city, state)
         HandleData(py_dict)
     except:
-        return '<h1> ERROR ENCOUNTERED: Invalid Character in Input </h1>'
+        return '<h2> Whoops! There was an Error Somewhere! </h2>'
     return render_template("results.html", pyDict = py_dict)
 
 ##Runs the Server
