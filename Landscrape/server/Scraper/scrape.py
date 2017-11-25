@@ -276,7 +276,7 @@ class Scraper:
             sub_info['name'] = str(name)
             sub_info['sub_url'] = str(sub_url)
             sub_info['stars'] = str(stars)
-            sub_info['addr'] = address
+            sub_info['addr'] = addr
 
             # append the dictionary to the list
             info.append(sub_info)
