@@ -127,7 +127,7 @@ class Scraper:
 
             # Get basic info
             name = mini_soup.find("img",class_="photo-box-img").get('alt')
-            stars = mini_soup.find("img",class_="offscreen").get('alt')[:3]
+            stars = str(float(mini_soup.find("img",class_="offscreen").get('alt')[:3])*2)
             tel = mini_soup.find("span",class_="biz-phone").text
 
             # Set basic info
@@ -260,7 +260,6 @@ class Scraper:
             # Set values to empty string, in case of overlap
             name = ""
             stars = ""
-            tel = ""
             addr = ""
             web_addr = ""
             hours = ""
@@ -268,33 +267,69 @@ class Scraper:
 
             # Get basic info
             name = mini_soup.find("a").text
-            #stars = mini_soup.find("img",class_="offscreen").get('alt')[:3]
-            #tel = mini_soup.find("span",class_="biz-phone").text
+            stars = mini_soup.find("div",class_="venueScore positive").text
             addr = mini_soup.find("div",class_="venueAddress").text
+            sub_url = "https://foursquare.com" + mini_soup.find("h2").find("a").get("href")
 
             # Set basic info
             sub_info = {}
             sub_info['name'] = str(name)
-            #sub_info['stars'] = str(stars)
-            #sub_info['tele'] = '(' + str(tel).split('(')[1].split('\n')[0]
-
-            # Get/Set address
-            #addr = str(mini_soup.find("address"))[18:len(addr)-15]
-            #pos1 = addr.find('<')
-            #pos2 = addr.find('>')
-            #address = addr[:pos1] + ', ' + addr[pos2+1:]
-            #sub_info['addr'] = address
-
-            # Get page-specific info, store in sub_soup
-            #sub_info["sub_url"] = "https://www.yelp.com" + mini_soup.find("a",class_="biz-name js-analytics-click").get("href")
+            sub_info['sub_url'] = str(sub_url)
+            sub_info['stars'] = str(stars)
+            sub_info['addr'] = address
 
             # append the dictionary to the list
             info.append(sub_info)
 
-            #print addr
+            #print sub_url
 
         #print search_results[0]
 
+
+    ## @Function
+    #
+    # four_get_sub_page_info
+    # @param self The object pointer
+    # @param sub_dict The dictionary for information to be added to
+    # @return dictionary sub dict with new info website, hour info, price info
+    def four_get_sub_page_info(self,sub_dict):
+
+        # get sub page
+        sub_page = urllib2.urlopen(sub_dict['sub_url'])
+        sub_soup = BS(sub_page,"html.parser")
+
+        # Get/Set the restaurant URL
+        web_addr = ""
+        for i in sub_soup.find_all("span",class_="biz-website js-add-url-tagging"):
+            web_addr = i.find('a').text
+        if web_addr == "":
+            web_addr = "No Website"
+        sub_dict['web_addr'] = web_addr.encode('utf-8')
+
+        # Get/Set restaurant hours, if available
+        hours = "No Hour Information"
+        try:
+            hour_start = sub_soup.find("strong", class_="u-space-r-half").find_all("span")[0].text
+            hour_end = sub_soup.find("strong", class_="u-space-r-half").find_all("span")[1].text
+            hours = hour_start + " - " + hour_end
+        except TypeError:
+            pass
+        except AttributeError:
+            pass
+        except IndexError:
+            pass
+        sub_dict['hours'] = str(hours)
+
+        # Get/Set price range info if available
+        price = "No Price Information"
+        try:
+            price_range = sub_soup.find("dd",class_="nowrap price-description").text
+            price = str(price_range[25:].split("     ")[0].split("\n")[0])
+        except AttributeError:
+            pass
+        sub_dict["price"] = price
+
+        return sub_dict
 
 
 
