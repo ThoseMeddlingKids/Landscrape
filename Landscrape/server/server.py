@@ -43,7 +43,7 @@ def HandleData(data):
 
 ## Function
 #
-# Creates a new python dictionary
+# Creates a new python dictionary with the results from a search query.
 def CreateDict(query, city, state):
     LandScrape = scrape.Scraper([query,city,state])
     return LandScrape.get_results()
@@ -109,7 +109,7 @@ def results():
         py_dict = CreateDict(query, city, state)
         HandleData(py_dict)
     except:
-        return '<h1> Whoops! There was an Error Somewhere! </h1>'
+        return '<h2> Whoops! There was an Error Somewhere! </h2>'
     return render_template("results.html", pyDict = py_dict)
 
 ##Runs the Server
