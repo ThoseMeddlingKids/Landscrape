@@ -1,13 +1,18 @@
 ## @file server.py
 #
 # Server run File that provides the main interface between our app and th Server
-#Includes routing Information and Rendering of HTML
-import random
+# Includes routing Information and Rendering of HTML
+
+#Importing essential python libraries and other tools
+import random, unittest
 from flask import Flask, render_template, request, flash, redirect, url_for, session, logging
 from wtforms import Form, StringField, SelectField, validators
 
+# Importing stuff we made
 from Scraper import scrape
+from tests import TestOutputSingle, TestOutputMulti, TestDictionaryLength
 
+#Define Flask App (an essential piece)
 app = Flask(__name__, static_folder="../static", template_folder="../static")
 app.debug = True
 
@@ -25,6 +30,7 @@ app.debug = True
 ## @Class InputForm
 #
 # Form that Takes the String(s) Given as Input and passes them into the dictionary
+#See WTForms Documentation for more information regarding declaration of form classes and their params
 class InputForm(Form):
     search_query = StringField(u'Enter Your Search:', render_kw={"placeholder": "Please Enter Queries as a Comma-Seperated list."}, validators = [validators.input_required()])
     search_state = SelectField(u'State:', choices=[('AL','Alabama'), ('AK', 'Alaska'), ('AZ', 'Arizona'), ('AR', 'Arkansas'),('CA', 'California'), ('CO', 'Colorado'), ('CT', 'Connecticut'), ('DE', 'Delaware'),('FL', 'Florida'), ('GA', 'Georgia'), ('HI', 'Hawaii'), ('ID', 'Idaho'), ('IL', 'Illinois'), ('IN', 'Indiana'), ('IA', 'Iowa'), ('KS', 'Kansas'), ('KY', 'Kentucky'), ('LA', 'Louisiana'), ('ME', 'Maine'), ('MD', 'Maryland'), ('MA', 'Massachusetts'), ('MI', 'Michigan'), ('MN', 'Minnesota'), ('MS', 'Mississippi'), ('MO', 'Missouri'), ('MT', 'Montana'), ('NE', 'Nebraska'), ('NV', 'Nevada'), ('NH', 'New Hampshire'), ('NJ', 'New Jersey'), ('NM', 'New Mexico'), ('NY', 'New York'), ('NC', 'North Carolina'), ('ND', 'North Dakota'), ('OH', 'Ohio'), ('OK', 'Oklahoma'), ('OR', 'Oregon'), ('PA', 'Pennsylvania'), ('RI', 'Rhode Island'), ('SC', 'South Carolina'), ('SD', 'South Dakota'), ('TN', 'Tennessee'), ('TX', 'Texas'), ('UT', 'Utah'), ('VT', 'Vermont'), ('VA', 'Virginia'), ('WA', 'Washington'), ('WV', 'West Virginia'), ('WI', 'Wisconsin'), ('WY', 'Wyoming')], default='KS')
@@ -37,6 +43,7 @@ class InputForm(Form):
 ## @File Handle
 #
 ## Deprecated
+# TODO: DO WE ACTUALLY NEED THIS FUNCTION? THIS SHOULE BE RESOLVED
 def HandleData(data):
     app.logger.info('%s processed', data)
     return data
@@ -51,6 +58,8 @@ def CreateDict(query, city, state):
 ########################################################
 #                                       ROUTES
 ########################################################
+# Routing for the application is essential for navigation on the web.
+
 ## Class "/"
 #
 # Main Landing Page for the App
@@ -89,6 +98,34 @@ def search():
 @app.route('/about')
 def about():
     return render_template("about.html")
+
+@app.route('/testresults', methods = ['GET','POST'])
+def testresults():
+
+    # Declare Test suite for each TestCase Class
+    suite1 = unittest.TestLoader().loadTestsFromTestCase(TestOutputSingle)
+    suite2 = unittest.TestLoader().loadTestsFromTestCase(TestOutputMulti)
+    suite3 = unittest.TestLoader().loadTestsFromTestCase(TestDictionaryLength)
+
+    # run the test suites and create a list of result objects
+    Test1_Result = unittest.TextTestRunner(verbosity = 1).run(suite1)
+    Test2_Result = unittest.TextTestRunner(verbosity = 1).run(suite2)
+    Test3_Result = unittest.TextTestRunner(verbosity = 1).run(suite3)
+
+    ResultOfTesting = [Test1_Result, Test2_Result, Test3_Result]
+
+    #Convert results to boolean output which will be passed to page
+    BooleanResults = []
+    for result in ResultOfTesting:
+        if len(result.errors) == 0:
+            BooleanResults.append(True)
+        else:
+            BooleanResults.append(False)
+
+    app.logger.info(BooleanResults)
+
+    #pass the boolean array to the page for loading
+    return render_template("testresults.html", BooleanTestResults = BooleanResults)
 
 
 @app.route('/loading', methods = ['GET', 'POST'])
