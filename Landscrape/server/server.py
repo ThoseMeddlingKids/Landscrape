@@ -4,7 +4,7 @@
 # Includes routing Information and Rendering of HTML
 
 #Importing essential python libraries and other tools
-import random, unittest
+import random, unittest, os
 from flask import Flask, render_template, request, flash, redirect, url_for, session, logging
 from wtforms import Form, StringField, SelectField, validators
 
@@ -160,5 +160,5 @@ if __name__ == "__main__":
     # setting key for the session in order to pass the search query to the results page
     # this is just initialization info. shouldn't need to ever touch this.
     app.secret_key = 'super secret key'
-    app.config['SESSION_TYPE'] = 'filesystem'
-    app.run(host = 'infinite-inlet-53673.herokuapp.com' , port = 3000)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host = '0.0.0.0' , port = 3000)
