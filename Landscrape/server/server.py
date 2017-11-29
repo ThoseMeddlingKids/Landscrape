@@ -161,4 +161,4 @@ if __name__ == "__main__":
     # this is just initialization info. shouldn't need to ever touch this.
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
-    app.run(host = '0.0.0.0' , port = 3000)
+    app.run(host = 'infinite-inlet-53673.herokuapp.com' , port = 3000)
