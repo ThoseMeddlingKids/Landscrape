@@ -1,1 +1,1 @@
-worker: python Landscrape/server/server.py
+web: python Landscrape/server/server.py
