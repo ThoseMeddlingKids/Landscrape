@@ -13,8 +13,8 @@
 <body>
 
 {% block body %}
-  <div class = "container">
-    <h1>Is Landscrape Complete?</h1>
+  <div class = "container col-md-12">
+    <h1 text-align="center">Is Landscrape Complete?</h1>
     <br />
       {% if False not in BooleanTestResults %}
       <div class = "container col-md-8">
@@ -23,12 +23,16 @@
         <img src="{{url_for('static', filename='success.png')}}" />
         <h2>YES! Landscrape is Currently Passing All Unit Tests</h2>
       </div>
+      {% else %}
+        <div class = "container col-md-8">
+          <h2>No, but we're hard at work getting things wrapped up!</h2>
+        </div>
       {% endif %}
 
     <br /><br />
     <div class = "container col-md-8">
       {% if BooleanTestResults[0] %}
-        <h2>Unit Test 1</h2>
+        <h3>Unit Test 1</h3>
         <p>
           Scraper Returns Dictionary on Single Input - Passing
         </p>
@@ -38,7 +42,7 @@
 
     <div class = "container col-md-8">
       {% if BooleanTestResults[1] %}
-        <h2>Unit Test 2</h2>
+        <h3>Unit Test 2</h3>
         <p>
           Scraper Returns Dictionary on Multiple Input - Passing
         </p>
@@ -48,7 +52,7 @@
 
     <div class = "container col-md-8">
       {% if BooleanTestResults[2] %}
-        <h2>Unit Test 3</h2>
+        <h3>Unit Test 3</h3>
         <p>
           Scraper Returns Dictionary of Same Length as Number of Inputs - Passing
         </p>
