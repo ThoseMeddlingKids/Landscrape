@@ -24,7 +24,8 @@ class TestDictionaryLength(unittest.TestCase):
         TestScraper = scrape.Scraper([testInput_MultiTerm,'Lawrence', 'Kansas'])
         self.assertEqual(len(TestScraper.get_results()), 3)
 
-    #I think this is all the tests we need? Please review
+    # Add unit testing for each term in the dictionary 
+    # I think this is all the tests we need? Please review
 
 if __name__ == '__main__':
     unittest.main()

@@ -142,11 +142,17 @@ def results():
     query = session['query']
     city = session['city']
     state = session['state']
+
+    ##################################
+    #TODO: Hey Ellis This is the try/catch
     try:
         py_dict = CreateDict(query, city, state)
         HandleData(py_dict)
     except:
         return '<h2> Whoops! There was an Error Somewhere! </h2>'
+    #TODO
+    ###################################
+
     return render_template("results.html", pyDict = py_dict)
 
 ##Runs the Server
