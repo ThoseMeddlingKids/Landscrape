@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <title>Landscrape</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css')}}" "" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>Landscrape</title>
-  <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css')}}" "" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      $('.button').each(function(){
-        $(this).click(function(){
-          $('#description_'+$(this).attr('dict['name']')).toggle();
-        });
-      });
-    });
-  </script>
-</head>
+  <body>
+    {% block body %}
+      {% for key in pyDict %}
+        <div class="search">
+          <p>Search results for {{key}}</p>
+          {% for dict in pyDict[key] %}
+            <a href="{{dict['sub_url']}}">
+              <div class="results">
+                {{dict['name']}} {{dict['stars']}}/10.0 <br> {{dict['addr']}}
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    {% endblock %}
+  </body>
 
-<body>
-
-  {% block body %}
-    {% for key in pyDict %}
-      <div class="search">
-        <p>Search results for {{key}}</p>
-        {% for dict in pyDict[key] %}
-          <div class="results">
-            {{dict['name']}} {{dict['stars']}}/10.0 <br> {{dict['addr']}}<br /><br />
-            <button class= "btn-success" id="button_{{dict['name']}}">Get More Information</button>
-            <div id = "description_button_{{dict['name']}}">
-              {{dict['name']}}
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    {% endfor %}
-  {% endblock %}
+</html>
