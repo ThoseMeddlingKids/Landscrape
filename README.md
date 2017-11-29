@@ -7,7 +7,6 @@ Landscrape utilizes a web scraper that returns highly rated attractions in a giv
 # Requirements
 - Python (2.7.11 or later)
 - Flask (0.12.2)
-- Virtualenv 15.1.0
 
 # Initial Set-Up
 1. Clone the repository
@@ -30,6 +29,13 @@ deactivate the virtualenv at any time using command `deactivate`.
 - WTForms: https://wtforms.readthedocs.io/
 - Yelp: https://www.yelp.com/
 
+# Testing
+We utilized Python's Built-In Unit Testing Framework in order to test our scraping functionality. Our test suite file is included in the server folder.
+
+You can look at our testing results by clicking on the "Is Landscrape Complete?" Link in our NavBar. This will initiate the test suite and display the results. 
+
+- Python UnitTest: https://docs.python.org/2/library/unittest.html
+
 # Documentation
 You will need to have cloned/forked our repo (which you should have done to run our app).
 
@@ -37,3 +43,5 @@ You will need to have cloned/forked our repo (which you should have done to run 
 - Scraper Documentation: Navigate to `Landscrape/server/Scraper/html/index.html` and open that file with a browser.
 
 From there you can use the navigation bar and go to `Namespaces` then `Namespace List` click on the bottom-most `server` to see all of our classes, functions, variables, etc.
+
+We used doxygen to generate our documentation. 
