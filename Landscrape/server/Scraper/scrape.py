@@ -56,8 +56,9 @@ class Scraper:
 
         yelp_res = self.yelp_get_results(sub_term)
 
-        self.four_get_results(sub_term)
-        return yelp_res
+        four_res = self.four_get_results(sub_term)
+
+        return four_res
 
 
     ####################################################
@@ -112,42 +113,47 @@ class Scraper:
             results = len(search_results)
 
         # scrape the results and store them in a list
-        for n in xrange(0,results):
+        array = range(0,results)
+        for n in array:
 
-            mini_soup = search_results[n]
+            try:
+                mini_soup = search_results[n]
 
-            # Set values to empty string, in case of overlap
-            name = ""
-            stars = ""
-            tel = ""
-            addr = ""
-            web_addr = ""
-            hours = ""
-            price_range = ""
+                # Set values to empty string, in case of overlap
+                name = ""
+                stars = ""
+                tel = ""
+                addr = ""
 
-            # Get basic info
-            name = mini_soup.find("img",class_="photo-box-img").get('alt')
-            stars = str(float(mini_soup.find("img",class_="offscreen").get('alt')[:3])*2)
-            tel = mini_soup.find("span",class_="biz-phone").text
+                # Get basic info
+                name = mini_soup.find("img",class_="photo-box-img").get('alt')
+                img = mini_soup.find("img",class_="photo-box-img").get('src')
+                stars = str(float(mini_soup.find("img",class_="offscreen").get('alt')[:3])*2)
+                tel = mini_soup.find("span",class_="biz-phone").text
+                tel = ''.join( c for c in tel if c.isdigit() )
 
-            # Set basic info
-            sub_info = {}
-            sub_info['name'] = str(name)
-            sub_info['stars'] = str(stars)
-            sub_info['tele'] = '(' + str(tel).split('(')[1].split('\n')[0]
+                # Set basic info
+                sub_info = {}
+                sub_info['name'] = name
+                sub_info['img'] = img
+                sub_info['stars'] = str(stars)
+                sub_info['tele'] = tel
 
-            # Get/Set address
-            addr = str(mini_soup.find("address"))[18:len(addr)-15]
-            pos1 = addr.find('<')
-            pos2 = addr.find('>')
-            address = addr[:pos1] + ', ' + addr[pos2+1:]
-            sub_info['addr'] = address
+                # Get/Set address
+                addr = str(mini_soup.find("address"))[18:len(addr)-15]
+                pos1 = addr.find('<')
+                pos2 = addr.find('>')
+                address = addr[:pos1] + ', ' + addr[pos2+1:]
+                sub_info['addr'] = address
 
-            # Get page-specific info, store in sub_soup
-            sub_info["sub_url"] = "https://www.yelp.com" + mini_soup.find("a",class_="biz-name js-analytics-click").get("href")
+                # Get page-specific info, store in sub_soup
+                sub_info["sub_url"] = "https://www.yelp.com" + mini_soup.find("a",class_="biz-name js-analytics-click").get("href")
 
-            # append the dictionary to the list
-            info.append(sub_info)
+                # append the dictionary to the list
+                info.append(sub_info)
+
+            except AttributeError:
+                array.append(array[len(array)-1]+1)
 
         # return type is a list of dictionaries
         #    result and a dictionary with its corresponding
@@ -217,7 +223,7 @@ class Scraper:
         term = split_terms[0]
         for i in xrange(1,len(split_terms)):
             if split_terms[i] != "":
-                term += "+" + split_terms[i]
+                term += "%20" + split_terms[i]
 
         return term
 
@@ -261,9 +267,6 @@ class Scraper:
             name = ""
             stars = ""
             addr = ""
-            web_addr = ""
-            hours = ""
-            price_range = ""
 
             # Get basic info
             name = mini_soup.find("a").text
@@ -273,18 +276,18 @@ class Scraper:
 
             # Set basic info
             sub_info = {}
-            sub_info['name'] = str(name)
-            sub_info['sub_url'] = str(sub_url)
+            sub_info['name'] = name.encode("utf-8")
+            sub_info['sub_url'] = sub_url
             sub_info['stars'] = str(stars)
             sub_info['addr'] = addr
+
+            # get the sub page information
+            sub_info = self.four_get_sub_page_info(sub_info)
 
             # append the dictionary to the list
             info.append(sub_info)
 
-            #print sub_url
-
-        #print search_results[0]
-
+        return info
 
     ## @Function
     #
@@ -298,42 +301,30 @@ class Scraper:
         sub_page = urllib2.urlopen(sub_dict['sub_url'])
         sub_soup = BS(sub_page,"html.parser")
 
+        # get telephone number
+        try:
+            tel = sub_soup.find_all("span",class_="tel")[0].text
+            tel = ''.join( c for c in tel if c.isdigit() )
+            sub_dict["tel"] = tel
+        except AttributeError:
+            sub_dict["tel"] = "No telephone"
+
         # Get/Set the restaurant URL
-        web_addr = ""
-        for i in sub_soup.find_all("span",class_="biz-website js-add-url-tagging"):
-            web_addr = i.find('a').text
-        if web_addr == "":
-            web_addr = "No Website"
-        sub_dict['web_addr'] = web_addr.encode('utf-8')
 
-        # Get/Set restaurant hours, if available
-        hours = "No Hour Information"
+        #########
+        ###FIX###
+        #########
         try:
-            hour_start = sub_soup.find("strong", class_="u-space-r-half").find_all("span")[0].text
-            hour_end = sub_soup.find("strong", class_="u-space-r-half").find_all("span")[1].text
-            hours = hour_start + " - " + hour_end
-        except TypeError:
-            pass
+            web_addr = sub_soup.find_all("a",class_="url").get("href")
+            sub_dict["web_addr"] = web_addr
         except AttributeError:
-            pass
-        except IndexError:
-            pass
-        sub_dict['hours'] = str(hours)
-
-        # Get/Set price range info if available
-        price = "No Price Information"
-        try:
-            price_range = sub_soup.find("dd",class_="nowrap price-description").text
-            price = str(price_range[25:].split("     ")[0].split("\n")[0])
-        except AttributeError:
-            pass
-        sub_dict["price"] = price
+            sub_dict["web_addr"] = "No web address"
 
         return sub_dict
 
 
 
-#yelp_info = Scraper(["burgers","Lawrence","KS"])
+#yelp_info = Scraper(["milk","Lawrence","KS"])
 #infor = yelp_info.get_results()
 #for i in infor:
 #    print i,infor[i]
