@@ -276,7 +276,9 @@ class Scraper:
 
             # Set basic info
             sub_info = {}
-            sub_info['name'] = name.encode("utf-8")
+            print "'",name,"'"
+            sub_info['name'] = str(name.encode("ascii","ignore"))
+            print "'",sub_info['name'],"'"
             sub_info['sub_url'] = sub_url
             sub_info['stars'] = str(stars)
             sub_info['addr'] = addr
