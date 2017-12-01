@@ -2,15 +2,31 @@
 \label{classserver_1_1_scraper_1_1scrape_1_1_scraper}\index{server.\+Scraper.\+scrape.\+Scraper@{server.\+Scraper.\+scrape.\+Scraper}}
 
 
-C\+L\+A\+S\+S\+ES.  
+C\+L\+A\+S\+S\+ES \#.  
 
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 def \mbox{\hyperlink{classserver_1_1_scraper_1_1scrape_1_1_scraper_a95f25aa269db339cee574652685b4ec3}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, search\+\_\+params)
-\begin{DoxyCompactList}\small\item\em S\+U\+B-\/\+F\+U\+N\+C\+T\+I\+O\+NS. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em C\+O\+N\+S\+T\+R\+U\+C\+T\+OR \#. \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{classserver_1_1_scraper_1_1scrape_1_1_scraper_a8500c13f880e66623effd042f763c0fb}{get\+\_\+results}} (self)
+\begin{DoxyCompactList}\small\item\em G\+E\+N\+E\+R\+AL G\+ET F\+U\+N\+C\+T\+I\+O\+NS \#. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classserver_1_1_scraper_1_1scrape_1_1_scraper_a5cc21814060959ee46bbde9cc7d7bbda}{sub\+\_\+get\+\_\+results}} (self, sub\+\_\+term)
+\item 
+def \mbox{\hyperlink{classserver_1_1_scraper_1_1scrape_1_1_scraper_a2810e31c93ef85447245822eaea9f8ac}{merge}} (self, yelp\+\_\+list, four\+\_\+list)
+\item 
+def \mbox{\hyperlink{classserver_1_1_scraper_1_1scrape_1_1_scraper_ab6b8f8032bc10cbe520e5310703b8a9b}{yelp\+\_\+format\+\_\+for\+\_\+url}} (self, format\+\_\+term)
+\begin{DoxyCompactList}\small\item\em Y\+E\+LP S\+C\+R\+A\+P\+I\+NG \#. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classserver_1_1_scraper_1_1scrape_1_1_scraper_a90576b2f821edab37becd682ad41654c}{yelp\+\_\+get\+\_\+results}} (self, sub\+\_\+term)
+\item 
+def \mbox{\hyperlink{classserver_1_1_scraper_1_1scrape_1_1_scraper_abbca4337e44d3989ac1cfd74cc77f65d}{yelp\+\_\+get\+\_\+sub\+\_\+page\+\_\+info}} (self, sub\+\_\+dict)
+\item 
+def \mbox{\hyperlink{classserver_1_1_scraper_1_1scrape_1_1_scraper_ab2dba9f86fe3bbf393833f1c3ddf19d8}{four\+\_\+format\+\_\+for\+\_\+url}} (self, format\+\_\+term)
+\begin{DoxyCompactList}\small\item\em F\+O\+U\+R\+S\+Q\+U\+A\+RE S\+C\+R\+A\+P\+I\+NG \#. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{classserver_1_1_scraper_1_1scrape_1_1_scraper_a783cc9e70f79b362d03b9d93d1d587ef}{four\+\_\+get\+\_\+results}} (self, sub\+\_\+term)
+\item 
+def \mbox{\hyperlink{classserver_1_1_scraper_1_1scrape_1_1_scraper_a1145a663a9763ba00b24b784381fa1df}{four\+\_\+get\+\_\+sub\+\_\+page\+\_\+info}} (self, sub\+\_\+dict)
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -24,7 +40,7 @@ def \mbox{\hyperlink{classserver_1_1_scraper_1_1scrape_1_1_scraper_a8500c13f880e
 
 
 \subsection{Detailed Description}
-C\+L\+A\+S\+S\+ES. 
+C\+L\+A\+S\+S\+ES \#. 
 
 \mbox{\hyperlink{classserver_1_1_scraper_1_1scrape_1_1_scraper}{Scraper}}
 
@@ -39,7 +55,7 @@ Scraping class that takes the search parameters as an input\+\_\+required
 
 
 
-S\+U\+B-\/\+F\+U\+N\+C\+T\+I\+O\+NS. 
+C\+O\+N\+S\+T\+R\+U\+C\+T\+OR \#. 
 
 Constructor 
 \begin{DoxyParams}{Parameters}
@@ -51,6 +67,66 @@ Constructor
 
 
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{classserver_1_1_scraper_1_1scrape_1_1_scraper_ab2dba9f86fe3bbf393833f1c3ddf19d8}\label{classserver_1_1_scraper_1_1scrape_1_1_scraper_ab2dba9f86fe3bbf393833f1c3ddf19d8}} 
+\index{server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}!four\+\_\+format\+\_\+for\+\_\+url@{four\+\_\+format\+\_\+for\+\_\+url}}
+\index{four\+\_\+format\+\_\+for\+\_\+url@{four\+\_\+format\+\_\+for\+\_\+url}!server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}}
+\subsubsection{\texorpdfstring{four\+\_\+format\+\_\+for\+\_\+url()}{four\_format\_for\_url()}}
+{\footnotesize\ttfamily def server.\+Scraper.\+scrape.\+Scraper.\+four\+\_\+format\+\_\+for\+\_\+url (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{format\+\_\+term }\end{DoxyParamCaption})}
+
+
+
+F\+O\+U\+R\+S\+Q\+U\+A\+RE S\+C\+R\+A\+P\+I\+NG \#. 
+
+four\+\_\+format\+\_\+for\+\_\+url 
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer \\
+\hline
+{\em format\+\_\+term} & A string value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+all\+\_\+results Dictionary of search terms and info \{ term1 \+: \mbox{[} info \mbox{]}, ...\} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classserver_1_1_scraper_1_1scrape_1_1_scraper_a783cc9e70f79b362d03b9d93d1d587ef}\label{classserver_1_1_scraper_1_1scrape_1_1_scraper_a783cc9e70f79b362d03b9d93d1d587ef}} 
+\index{server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}!four\+\_\+get\+\_\+results@{four\+\_\+get\+\_\+results}}
+\index{four\+\_\+get\+\_\+results@{four\+\_\+get\+\_\+results}!server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}}
+\subsubsection{\texorpdfstring{four\+\_\+get\+\_\+results()}{four\_get\_results()}}
+{\footnotesize\ttfamily def server.\+Scraper.\+scrape.\+Scraper.\+four\+\_\+get\+\_\+results (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sub\+\_\+term }\end{DoxyParamCaption})}
+
+
+
+
+
+four\+\_\+get\+\_\+results 
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer \\
+\hline
+{\em sub\+\_\+dict} & The dictionary for information to be added to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dictionary sub dict with new info website, hour info, price info 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classserver_1_1_scraper_1_1scrape_1_1_scraper_a1145a663a9763ba00b24b784381fa1df}\label{classserver_1_1_scraper_1_1scrape_1_1_scraper_a1145a663a9763ba00b24b784381fa1df}} 
+\index{server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}!four\+\_\+get\+\_\+sub\+\_\+page\+\_\+info@{four\+\_\+get\+\_\+sub\+\_\+page\+\_\+info}}
+\index{four\+\_\+get\+\_\+sub\+\_\+page\+\_\+info@{four\+\_\+get\+\_\+sub\+\_\+page\+\_\+info}!server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}}
+\subsubsection{\texorpdfstring{four\+\_\+get\+\_\+sub\+\_\+page\+\_\+info()}{four\_get\_sub\_page\_info()}}
+{\footnotesize\ttfamily def server.\+Scraper.\+scrape.\+Scraper.\+four\+\_\+get\+\_\+sub\+\_\+page\+\_\+info (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sub\+\_\+dict }\end{DoxyParamCaption})}
+
+
+
+
+
+four\+\_\+get\+\_\+sub\+\_\+page\+\_\+info 
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer \\
+\hline
+{\em sub\+\_\+dict} & The dictionary for information to be added to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dictionary sub dict with new info website, hour info, price info 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classserver_1_1_scraper_1_1scrape_1_1_scraper_a8500c13f880e66623effd042f763c0fb}\label{classserver_1_1_scraper_1_1scrape_1_1_scraper_a8500c13f880e66623effd042f763c0fb}} 
 \index{server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}!get\+\_\+results@{get\+\_\+results}}
 \index{get\+\_\+results@{get\+\_\+results}!server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}}
@@ -59,7 +135,7 @@ Constructor
 
 
 
-
+G\+E\+N\+E\+R\+AL G\+ET F\+U\+N\+C\+T\+I\+O\+NS \#. 
 
 get\+\_\+results 
 \begin{DoxyParams}{Parameters}
@@ -67,7 +143,109 @@ get\+\_\+results
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-info Nested dictionary, \{ result1 \+: \{ info \}, ...\} 
+all\+\_\+results Dictionary of search terms and info \{ term1 \+: \mbox{[} info \mbox{]}, ...\} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classserver_1_1_scraper_1_1scrape_1_1_scraper_a2810e31c93ef85447245822eaea9f8ac}\label{classserver_1_1_scraper_1_1scrape_1_1_scraper_a2810e31c93ef85447245822eaea9f8ac}} 
+\index{server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}!merge@{merge}}
+\index{merge@{merge}!server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}}
+\subsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily def server.\+Scraper.\+scrape.\+Scraper.\+merge (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{yelp\+\_\+list,  }\item[{}]{four\+\_\+list }\end{DoxyParamCaption})}
+
+
+
+
+
+merge 
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer \\
+\hline
+{\em yelp\+\_\+list} & A dictionary of scraped yelp values \\
+\hline
+{\em four\+\_\+list} & A dictionary of scraped foursquare values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+info Ordered list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classserver_1_1_scraper_1_1scrape_1_1_scraper_a5cc21814060959ee46bbde9cc7d7bbda}\label{classserver_1_1_scraper_1_1scrape_1_1_scraper_a5cc21814060959ee46bbde9cc7d7bbda}} 
+\index{server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}!sub\+\_\+get\+\_\+results@{sub\+\_\+get\+\_\+results}}
+\index{sub\+\_\+get\+\_\+results@{sub\+\_\+get\+\_\+results}!server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}}
+\subsubsection{\texorpdfstring{sub\+\_\+get\+\_\+results()}{sub\_get\_results()}}
+{\footnotesize\ttfamily def server.\+Scraper.\+scrape.\+Scraper.\+sub\+\_\+get\+\_\+results (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sub\+\_\+term }\end{DoxyParamCaption})}
+
+
+
+
+
+sub\+\_\+get\+\_\+results 
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer \\
+\hline
+{\em sub\+\_\+term} & A string search value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+info Ordered list of dictionaries 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classserver_1_1_scraper_1_1scrape_1_1_scraper_ab6b8f8032bc10cbe520e5310703b8a9b}\label{classserver_1_1_scraper_1_1scrape_1_1_scraper_ab6b8f8032bc10cbe520e5310703b8a9b}} 
+\index{server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}!yelp\+\_\+format\+\_\+for\+\_\+url@{yelp\+\_\+format\+\_\+for\+\_\+url}}
+\index{yelp\+\_\+format\+\_\+for\+\_\+url@{yelp\+\_\+format\+\_\+for\+\_\+url}!server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}}
+\subsubsection{\texorpdfstring{yelp\+\_\+format\+\_\+for\+\_\+url()}{yelp\_format\_for\_url()}}
+{\footnotesize\ttfamily def server.\+Scraper.\+scrape.\+Scraper.\+yelp\+\_\+format\+\_\+for\+\_\+url (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{format\+\_\+term }\end{DoxyParamCaption})}
+
+
+
+Y\+E\+LP S\+C\+R\+A\+P\+I\+NG \#. 
+
+yelp\+\_\+format\+\_\+for\+\_\+url 
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer \\
+\hline
+{\em format\+\_\+term} & A string value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+all\+\_\+results Dictionary of search terms and info \{ term1 \+: \mbox{[} info \mbox{]}, ...\} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classserver_1_1_scraper_1_1scrape_1_1_scraper_a90576b2f821edab37becd682ad41654c}\label{classserver_1_1_scraper_1_1scrape_1_1_scraper_a90576b2f821edab37becd682ad41654c}} 
+\index{server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}!yelp\+\_\+get\+\_\+results@{yelp\+\_\+get\+\_\+results}}
+\index{yelp\+\_\+get\+\_\+results@{yelp\+\_\+get\+\_\+results}!server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}}
+\subsubsection{\texorpdfstring{yelp\+\_\+get\+\_\+results()}{yelp\_get\_results()}}
+{\footnotesize\ttfamily def server.\+Scraper.\+scrape.\+Scraper.\+yelp\+\_\+get\+\_\+results (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sub\+\_\+term }\end{DoxyParamCaption})}
+
+
+
+
+
+yelp\+\_\+get\+\_\+results 
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer \\
+\hline
+{\em sub\+\_\+term} & A string search value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+info Ordered list of dictionaries 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classserver_1_1_scraper_1_1scrape_1_1_scraper_abbca4337e44d3989ac1cfd74cc77f65d}\label{classserver_1_1_scraper_1_1scrape_1_1_scraper_abbca4337e44d3989ac1cfd74cc77f65d}} 
+\index{server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}!yelp\+\_\+get\+\_\+sub\+\_\+page\+\_\+info@{yelp\+\_\+get\+\_\+sub\+\_\+page\+\_\+info}}
+\index{yelp\+\_\+get\+\_\+sub\+\_\+page\+\_\+info@{yelp\+\_\+get\+\_\+sub\+\_\+page\+\_\+info}!server\+::\+Scraper\+::scrape\+::\+Scraper@{server\+::\+Scraper\+::scrape\+::\+Scraper}}
+\subsubsection{\texorpdfstring{yelp\+\_\+get\+\_\+sub\+\_\+page\+\_\+info()}{yelp\_get\_sub\_page\_info()}}
+{\footnotesize\ttfamily def server.\+Scraper.\+scrape.\+Scraper.\+yelp\+\_\+get\+\_\+sub\+\_\+page\+\_\+info (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{sub\+\_\+dict }\end{DoxyParamCaption})}
+
+
+
+
+
+yelp\+\_\+get\+\_\+sub\+\_\+page\+\_\+info 
+\begin{DoxyParams}{Parameters}
+{\em self} & The object pointer \\
+\hline
+{\em sub\+\_\+dict} & The dictionary for information to be added to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+dictionary sub dict with new info website, hour info, price info 
 \end{DoxyReturn}
 
 

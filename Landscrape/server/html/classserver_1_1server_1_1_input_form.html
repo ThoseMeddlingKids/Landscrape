@@ -86,16 +86,20 @@ Inheritance diagram for server.server.InputForm:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a97d0f535c9311f8bddaeee98f8c85021"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver_1_1server_1_1_input_form.html#a97d0f535c9311f8bddaeee98f8c85021">searchquery</a> = StringField(u'Enter Your Search:', validators = [validators.input_required()])</td></tr>
-<tr class="separator:a97d0f535c9311f8bddaeee98f8c85021"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4f0118c5e7a7ecc3ca50d7f781f2de2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver_1_1server_1_1_input_form.html#ab4f0118c5e7a7ecc3ca50d7f781f2de2">search_query</a> = StringField(u'Enter Your Search:', render_kw={&quot;placeholder&quot;: &quot;Please Enter Queries as a Comma-Seperated list.&quot;}, validators = [validators.input_required()])</td></tr>
+<tr class="separator:ab4f0118c5e7a7ecc3ca50d7f781f2de2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad899681ccf68ae96f24ae575e3142635"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver_1_1server_1_1_input_form.html#ad899681ccf68ae96f24ae575e3142635">search_state</a> = SelectField(u'State:', choices=[('AL','Alabama'), ('AK', 'Alaska'), ('AZ', 'Arizona'), ('AR', 'Arkansas'),('CA', 'California'), ('CO', 'Colorado'), ('CT', 'Connecticut'), ('DE', 'Delaware'),('FL', 'Florida'), ('GA', 'Georgia'), ('HI', 'Hawaii'), ('ID', 'Idaho'), ('IL', 'Illinois'), ('IN', 'Indiana'), ('IA', 'Iowa'), ('KS', 'Kansas'), ('KY', 'Kentucky'), ('LA', 'Louisiana'), ('ME', 'Maine'), ('MD', 'Maryland'), ('MA', 'Massachusetts'), ('MI', 'Michigan'), ('MN', 'Minnesota'), ('MS', 'Mississippi'), ('MO', 'Missouri'), ('MT', 'Montana'), ('NE', 'Nebraska'), ('NV', 'Nevada'), ('NH', 'New Hampshire'), ('NJ', 'New Jersey'), ('NM', 'New Mexico'), ('NY', 'New York'), ('NC', 'North Carolina'), ('ND', 'North Dakota'), ('OH', 'Ohio'), ('OK', 'Oklahoma'), ('OR', 'Oregon'), ('PA', 'Pennsylvania'), ('RI', 'Rhode Island'), ('SC', 'South Carolina'), ('SD', 'South Dakota'), ('TN', 'Tennessee'), ('TX', 'Texas'), ('UT', 'Utah'), ('VT', 'Vermont'), ('VA', 'Virginia'), ('WA', 'Washington'), ('WV', 'West Virginia'), ('WI', 'Wisconsin'), ('WY', 'Wyoming')], default='KS')</td></tr>
+<tr class="separator:ad899681ccf68ae96f24ae575e3142635"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a219d510984378b86ca3c87003cba3ab2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classserver_1_1server_1_1_input_form.html#a219d510984378b86ca3c87003cba3ab2">search_city</a> = StringField(u'City:', validators = [validators.input_required()], default=&quot;Lawrence&quot;)</td></tr>
+<tr class="separator:a219d510984378b86ca3c87003cba3ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>CLASSES. </p>
 <p><a class="el" href="classserver_1_1server_1_1_input_form.html" title="CLASSES. ">InputForm</a></p>
-<p>Form that Takes the String(s) Given as Input </p>
+<p>Form that Takes the String(s) Given as Input and passes them into the dictionary See WTForms Documentation for more information regarding declaration of form classes and their params </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a97d0f535c9311f8bddaeee98f8c85021"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97d0f535c9311f8bddaeee98f8c85021">&#9670;&nbsp;</a></span>searchquery</h2>
+<a id="a219d510984378b86ca3c87003cba3ab2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a219d510984378b86ca3c87003cba3ab2">&#9670;&nbsp;</a></span>search_city</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -104,7 +108,51 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">server.server.InputForm.searchquery = StringField(u'Enter Your Search:', validators = [validators.input_required()])</td>
+          <td class="memname">server.server.InputForm.search_city = StringField(u'City:', validators = [validators.input_required()], default=&quot;Lawrence&quot;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab4f0118c5e7a7ecc3ca50d7f781f2de2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4f0118c5e7a7ecc3ca50d7f781f2de2">&#9670;&nbsp;</a></span>search_query</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">server.server.InputForm.search_query = StringField(u'Enter Your Search:', render_kw={&quot;placeholder&quot;: &quot;Please Enter Queries as a Comma-Seperated list.&quot;}, validators = [validators.input_required()])</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad899681ccf68ae96f24ae575e3142635"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad899681ccf68ae96f24ae575e3142635">&#9670;&nbsp;</a></span>search_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">server.server.InputForm.search_state = SelectField(u'State:', choices=[('AL','Alabama'), ('AK', 'Alaska'), ('AZ', 'Arizona'), ('AR', 'Arkansas'),('CA', 'California'), ('CO', 'Colorado'), ('CT', 'Connecticut'), ('DE', 'Delaware'),('FL', 'Florida'), ('GA', 'Georgia'), ('HI', 'Hawaii'), ('ID', 'Idaho'), ('IL', 'Illinois'), ('IN', 'Indiana'), ('IA', 'Iowa'), ('KS', 'Kansas'), ('KY', 'Kentucky'), ('LA', 'Louisiana'), ('ME', 'Maine'), ('MD', 'Maryland'), ('MA', 'Massachusetts'), ('MI', 'Michigan'), ('MN', 'Minnesota'), ('MS', 'Mississippi'), ('MO', 'Missouri'), ('MT', 'Montana'), ('NE', 'Nebraska'), ('NV', 'Nevada'), ('NH', 'New Hampshire'), ('NJ', 'New Jersey'), ('NM', 'New Mexico'), ('NY', 'New York'), ('NC', 'North Carolina'), ('ND', 'North Dakota'), ('OH', 'Ohio'), ('OK', 'Oklahoma'), ('OR', 'Oregon'), ('PA', 'Pennsylvania'), ('RI', 'Rhode Island'), ('SC', 'South Carolina'), ('SD', 'South Dakota'), ('TN', 'Tennessee'), ('TX', 'Texas'), ('UT', 'Utah'), ('VT', 'Vermont'), ('VA', 'Virginia'), ('WA', 'Washington'), ('WV', 'West Virginia'), ('WI', 'Wisconsin'), ('WY', 'Wyoming')], default='KS')</td>
         </tr>
       </table>
   </td>

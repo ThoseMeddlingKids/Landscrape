@@ -8,29 +8,35 @@ class \mbox{\hyperlink{classserver_1_1server_1_1_input_form}{Input\+Form}}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-def \mbox{\hyperlink{namespaceserver_1_1server_a59e9bd350bd3f6864626e826a5d07e61}{Handle\+Data}} (data)
-\begin{DoxyCompactList}\small\item\em Handle \end{DoxyCompactList}\item 
-def \mbox{\hyperlink{namespaceserver_1_1server_a06b6b48a36458a5e63d37667433c2080}{Create\+Dict}} (name)
-\begin{DoxyCompactList}\small\item\em Function. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_1_1server_a5a8e8748bfecc019464dddba22dec54d}{Create\+Dict}} (query, city, state)
+\begin{DoxyCompactList}\small\item\em Create\+Dict \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{namespaceserver_1_1server_ab3d96b92729f42de2866e0cb876a0a71}{index}} ()
 \begin{DoxyCompactList}\small\item\em R\+O\+U\+T\+ES. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_1_1server_a7bdc96668852473d18262dd1185ac3d9}{about}} ()
+\begin{DoxyCompactList}\small\item\em \char`\"{}/about\char`\"{} \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_1_1server_a955808717557d0ba956fed11f0690c95}{testresults}} ()
+\item 
 def \mbox{\hyperlink{namespaceserver_1_1server_ae5d697d5408aeb2f94e2aa610a4706aa}{search}} ()
 \item 
-def \mbox{\hyperlink{namespaceserver_1_1server_a7bdc96668852473d18262dd1185ac3d9}{about}} ()
-\begin{DoxyCompactList}\small\item\em Function \char`\"{}/about\char`\"{}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_1_1server_a577541b22116afba4cb2125f1597ae79}{loading}} ()
+\item 
 def \mbox{\hyperlink{namespaceserver_1_1server_a83a8086e94730016efda959e40b9cfaf}{results}} ()
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespaceserver_1_1server_abe540ab6e7c9bffd61dda91273e699e2}{app}} = Flask(\+\_\+\+\_\+name\+\_\+\+\_\+, static\+\_\+folder=\char`\"{}../static/dist\char`\"{}, template\+\_\+folder=\char`\"{}../static\char`\"{})
+\mbox{\hyperlink{namespaceserver_1_1server_abe540ab6e7c9bffd61dda91273e699e2}{app}} = Flask(\+\_\+\+\_\+name\+\_\+\+\_\+, static\+\_\+folder=\char`\"{}../static\char`\"{}, template\+\_\+folder=\char`\"{}../static\char`\"{})
 \item 
 \mbox{\hyperlink{namespaceserver_1_1server_addf5a8b97b626d4622f3fb2b2f8065ab}{debug}}
 \item 
 \mbox{\hyperlink{namespaceserver_1_1server_a1e0984522028dec04483b66d00e8b6b6}{methods}}
-\begin{DoxyCompactList}\small\item\em Class \char`\"{}/search\char`\"{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \char`\"{}/testresults\char`\"{} \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespaceserver_1_1server_a70d8440bb9056abff06b917ecacce061}{secret\+\_\+key}}
-\begin{DoxyCompactList}\small\item\em Runs the Server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \char`\"{}\+M\+A\+I\+N\char`\"{} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_1_1server_aba3c9bb7c915469f57a050466a1ef6d8}{port}} = int(os.\+environ.\+get(\char`\"{}P\+O\+RT\char`\"{}, 5000))
+\item 
+\mbox{\hyperlink{namespaceserver_1_1server_adca03b39e1ec441d3c574a753afb0016}{host}}
+\end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
@@ -42,29 +48,19 @@ def \mbox{\hyperlink{namespaceserver_1_1server_a83a8086e94730016efda959e40b9cfaf
 
 
 
-Function \char`\"{}/about\char`\"{}. 
+\char`\"{}/about\char`\"{} 
 
-Documentation Renders H\+T\+ML with Documentation links \mbox{\Hypertarget{namespaceserver_1_1server_a06b6b48a36458a5e63d37667433c2080}\label{namespaceserver_1_1server_a06b6b48a36458a5e63d37667433c2080}} 
+Renders the \char`\"{}\+Is Land\+Scrape Complete?\char`\"{} Page with the results of our testing suite \mbox{\Hypertarget{namespaceserver_1_1server_a5a8e8748bfecc019464dddba22dec54d}\label{namespaceserver_1_1server_a5a8e8748bfecc019464dddba22dec54d}} 
 \index{server\+::server@{server\+::server}!Create\+Dict@{Create\+Dict}}
 \index{Create\+Dict@{Create\+Dict}!server\+::server@{server\+::server}}
 \subsubsection{\texorpdfstring{Create\+Dict()}{CreateDict()}}
-{\footnotesize\ttfamily def server.\+server.\+Create\+Dict (\begin{DoxyParamCaption}\item[{}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily def server.\+server.\+Create\+Dict (\begin{DoxyParamCaption}\item[{}]{query,  }\item[{}]{city,  }\item[{}]{state }\end{DoxyParamCaption})}
 
 
 
-Function. 
+Create\+Dict 
 
-Creates a new python dictionary \mbox{\Hypertarget{namespaceserver_1_1server_a59e9bd350bd3f6864626e826a5d07e61}\label{namespaceserver_1_1server_a59e9bd350bd3f6864626e826a5d07e61}} 
-\index{server\+::server@{server\+::server}!Handle\+Data@{Handle\+Data}}
-\index{Handle\+Data@{Handle\+Data}!server\+::server@{server\+::server}}
-\subsubsection{\texorpdfstring{Handle\+Data()}{HandleData()}}
-{\footnotesize\ttfamily def server.\+server.\+Handle\+Data (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
-
-
-
-Handle 
-
-Deprecated \mbox{\Hypertarget{namespaceserver_1_1server_ab3d96b92729f42de2866e0cb876a0a71}\label{namespaceserver_1_1server_ab3d96b92729f42de2866e0cb876a0a71}} 
+Creates a new python dictionary with the results from a search query. \mbox{\Hypertarget{namespaceserver_1_1server_ab3d96b92729f42de2866e0cb876a0a71}\label{namespaceserver_1_1server_ab3d96b92729f42de2866e0cb876a0a71}} 
 \index{server\+::server@{server\+::server}!index@{index}}
 \index{index@{index}!server\+::server@{server\+::server}}
 \subsubsection{\texorpdfstring{index()}{index()}}
@@ -74,9 +70,15 @@ Deprecated \mbox{\Hypertarget{namespaceserver_1_1server_ab3d96b92729f42de2866e0c
 
 R\+O\+U\+T\+ES. 
 
-Class \char`\"{}/\char`\"{}
+Routing for the application is essential for navigation on the web.  \char`\"{}/\char`\"{}
 
-Main Landing Page for the App Renders Index from Static/index.\+html \mbox{\Hypertarget{namespaceserver_1_1server_a83a8086e94730016efda959e40b9cfaf}\label{namespaceserver_1_1server_a83a8086e94730016efda959e40b9cfaf}} 
+Main Landing Page for the App Renders Index from Static/index.\+html \mbox{\Hypertarget{namespaceserver_1_1server_a577541b22116afba4cb2125f1597ae79}\label{namespaceserver_1_1server_a577541b22116afba4cb2125f1597ae79}} 
+\index{server\+::server@{server\+::server}!loading@{loading}}
+\index{loading@{loading}!server\+::server@{server\+::server}}
+\subsubsection{\texorpdfstring{loading()}{loading()}}
+{\footnotesize\ttfamily def server.\+server.\+loading (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceserver_1_1server_a83a8086e94730016efda959e40b9cfaf}\label{namespaceserver_1_1server_a83a8086e94730016efda959e40b9cfaf}} 
 \index{server\+::server@{server\+::server}!results@{results}}
 \index{results@{results}!server\+::server@{server\+::server}}
 \subsubsection{\texorpdfstring{results()}{results()}}
@@ -88,6 +90,12 @@ Main Landing Page for the App Renders Index from Static/index.\+html \mbox{\Hype
 \subsubsection{\texorpdfstring{search()}{search()}}
 {\footnotesize\ttfamily def server.\+server.\+search (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{namespaceserver_1_1server_a955808717557d0ba956fed11f0690c95}\label{namespaceserver_1_1server_a955808717557d0ba956fed11f0690c95}} 
+\index{server\+::server@{server\+::server}!testresults@{testresults}}
+\index{testresults@{testresults}!server\+::server@{server\+::server}}
+\subsubsection{\texorpdfstring{testresults()}{testresults()}}
+{\footnotesize\ttfamily def server.\+server.\+testresults (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
 
 
 \subsection{Variable Documentation}
@@ -95,13 +103,19 @@ Main Landing Page for the App Renders Index from Static/index.\+html \mbox{\Hype
 \index{server\+::server@{server\+::server}!app@{app}}
 \index{app@{app}!server\+::server@{server\+::server}}
 \subsubsection{\texorpdfstring{app}{app}}
-{\footnotesize\ttfamily server.\+server.\+app = Flask(\+\_\+\+\_\+name\+\_\+\+\_\+, static\+\_\+folder=\char`\"{}../static/dist\char`\"{}, template\+\_\+folder=\char`\"{}../static\char`\"{})}
+{\footnotesize\ttfamily server.\+server.\+app = Flask(\+\_\+\+\_\+name\+\_\+\+\_\+, static\+\_\+folder=\char`\"{}../static\char`\"{}, template\+\_\+folder=\char`\"{}../static\char`\"{})}
 
 \mbox{\Hypertarget{namespaceserver_1_1server_addf5a8b97b626d4622f3fb2b2f8065ab}\label{namespaceserver_1_1server_addf5a8b97b626d4622f3fb2b2f8065ab}} 
 \index{server\+::server@{server\+::server}!debug@{debug}}
 \index{debug@{debug}!server\+::server@{server\+::server}}
 \subsubsection{\texorpdfstring{debug}{debug}}
 {\footnotesize\ttfamily server.\+server.\+debug}
+
+\mbox{\Hypertarget{namespaceserver_1_1server_adca03b39e1ec441d3c574a753afb0016}\label{namespaceserver_1_1server_adca03b39e1ec441d3c574a753afb0016}} 
+\index{server\+::server@{server\+::server}!host@{host}}
+\index{host@{host}!server\+::server@{server\+::server}}
+\subsubsection{\texorpdfstring{host}{host}}
+{\footnotesize\ttfamily server.\+server.\+host}
 
 \mbox{\Hypertarget{namespaceserver_1_1server_a1e0984522028dec04483b66d00e8b6b6}\label{namespaceserver_1_1server_a1e0984522028dec04483b66d00e8b6b6}} 
 \index{server\+::server@{server\+::server}!methods@{methods}}
@@ -111,13 +125,27 @@ Main Landing Page for the App Renders Index from Static/index.\+html \mbox{\Hype
 
 
 
-Class \char`\"{}/search\char`\"{}. 
+\char`\"{}/testresults\char`\"{} 
 
-Function \char`\"{}/searchresults\char`\"{}.
+\char`\"{}/searchresults\char`\"{}
+
+\char`\"{}/loading\char`\"{}
+
+\char`\"{}/search\char`\"{}
+
+Renders the test results page and handles the running of our test suite from within the app
 
 Search Page for Landscrape Renders the Search H\+T\+ML file This is the Page where users can input search queries
 
-Process Data from the Scraping function Renders H\+T\+ML with Results \mbox{\Hypertarget{namespaceserver_1_1server_a70d8440bb9056abff06b917ecacce061}\label{namespaceserver_1_1server_a70d8440bb9056abff06b917ecacce061}} 
+Placeholder for the time it takes to load results from a search
+
+Process Data from the Scraping function Renders H\+T\+ML with Results \mbox{\Hypertarget{namespaceserver_1_1server_aba3c9bb7c915469f57a050466a1ef6d8}\label{namespaceserver_1_1server_aba3c9bb7c915469f57a050466a1ef6d8}} 
+\index{server\+::server@{server\+::server}!port@{port}}
+\index{port@{port}!server\+::server@{server\+::server}}
+\subsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily server.\+server.\+port = int(os.\+environ.\+get(\char`\"{}P\+O\+RT\char`\"{}, 5000))}
+
+\mbox{\Hypertarget{namespaceserver_1_1server_a70d8440bb9056abff06b917ecacce061}\label{namespaceserver_1_1server_a70d8440bb9056abff06b917ecacce061}} 
 \index{server\+::server@{server\+::server}!secret\+\_\+key@{secret\+\_\+key}}
 \index{secret\+\_\+key@{secret\+\_\+key}!server\+::server@{server\+::server}}
 \subsubsection{\texorpdfstring{secret\+\_\+key}{secret\_key}}
@@ -125,5 +153,6 @@ Process Data from the Scraping function Renders H\+T\+ML with Results \mbox{\Hyp
 
 
 
-Runs the Server. 
+\char`\"{}\+M\+A\+I\+N\char`\"{} 
 
+Runs the Server and deploys the app to a local host. This also deals with the heroku environment setup using the \char`\"{}os\char`\"{} call 

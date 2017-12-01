@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['methods',['methods',['../namespaceserver_1_1server.html#a1e0984522028dec04483b66d00e8b6b6',1,'server::server']]]
+  ['host',['host',['../namespaceserver_1_1server.html#adca03b39e1ec441d3c574a753afb0016',1,'server::server']]]
 ];

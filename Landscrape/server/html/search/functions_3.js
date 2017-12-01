@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['index',['index',['../namespaceserver_1_1server.html#ab3d96b92729f42de2866e0cb876a0a71',1,'server::server']]]
+  ['loading',['loading',['../namespaceserver_1_1server.html#a577541b22116afba4cb2125f1597ae79',1,'server::server']]]
 ];

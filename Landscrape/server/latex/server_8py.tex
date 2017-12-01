@@ -16,36 +16,41 @@ class \mbox{\hyperlink{classserver_1_1server_1_1_input_form}{server.\+server.\+I
  \mbox{\hyperlink{namespaceserver_1_1server}{server.\+server}}
 \item 
  \mbox{\hyperlink{namespace_flask}{Flask}}
-\begin{DoxyCompactList}\small\item\em Documentation for the Server \mbox{\hyperlink{namespace_flask}{Flask}} is a Microframework for Web Development thtat Utilizes Python. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{namespace_flask}{Flask}} is a Microframework for Web Development thtat Utilizes Python Flask-\/\+W\+TF is a form handling library for \mbox{\hyperlink{namespace_flask}{Flask}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-def \mbox{\hyperlink{namespaceserver_1_1server_a59e9bd350bd3f6864626e826a5d07e61}{server.\+server.\+Handle\+Data}} (data)
-\begin{DoxyCompactList}\small\item\em Handle \end{DoxyCompactList}\item 
-def \mbox{\hyperlink{namespaceserver_1_1server_a06b6b48a36458a5e63d37667433c2080}{server.\+server.\+Create\+Dict}} (name)
-\begin{DoxyCompactList}\small\item\em Function. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_1_1server_a5a8e8748bfecc019464dddba22dec54d}{server.\+server.\+Create\+Dict}} (query, city, state)
+\begin{DoxyCompactList}\small\item\em Create\+Dict \end{DoxyCompactList}\item 
 def \mbox{\hyperlink{namespaceserver_1_1server_ab3d96b92729f42de2866e0cb876a0a71}{server.\+server.\+index}} ()
 \begin{DoxyCompactList}\small\item\em R\+O\+U\+T\+ES. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_1_1server_a7bdc96668852473d18262dd1185ac3d9}{server.\+server.\+about}} ()
+\begin{DoxyCompactList}\small\item\em \char`\"{}/about\char`\"{} \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_1_1server_a955808717557d0ba956fed11f0690c95}{server.\+server.\+testresults}} ()
+\item 
 def \mbox{\hyperlink{namespaceserver_1_1server_ae5d697d5408aeb2f94e2aa610a4706aa}{server.\+server.\+search}} ()
 \item 
-def \mbox{\hyperlink{namespaceserver_1_1server_a7bdc96668852473d18262dd1185ac3d9}{server.\+server.\+about}} ()
-\begin{DoxyCompactList}\small\item\em Function \char`\"{}/about\char`\"{}. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceserver_1_1server_a577541b22116afba4cb2125f1597ae79}{server.\+server.\+loading}} ()
+\item 
 def \mbox{\hyperlink{namespaceserver_1_1server_a83a8086e94730016efda959e40b9cfaf}{server.\+server.\+results}} ()
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespaceserver_1_1server_abe540ab6e7c9bffd61dda91273e699e2}{server.\+server.\+app}} = Flask(\+\_\+\+\_\+name\+\_\+\+\_\+, static\+\_\+folder=\char`\"{}../static/dist\char`\"{}, template\+\_\+folder=\char`\"{}../static\char`\"{})
+\mbox{\hyperlink{namespaceserver_1_1server_abe540ab6e7c9bffd61dda91273e699e2}{server.\+server.\+app}} = Flask(\+\_\+\+\_\+name\+\_\+\+\_\+, static\+\_\+folder=\char`\"{}../static\char`\"{}, template\+\_\+folder=\char`\"{}../static\char`\"{})
 \item 
 \mbox{\hyperlink{namespaceserver_1_1server_addf5a8b97b626d4622f3fb2b2f8065ab}{server.\+server.\+debug}}
 \item 
 \mbox{\hyperlink{namespaceserver_1_1server_a1e0984522028dec04483b66d00e8b6b6}{server.\+server.\+methods}}
-\begin{DoxyCompactList}\small\item\em Class \char`\"{}/search\char`\"{}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \char`\"{}/testresults\char`\"{} \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespaceserver_1_1server_a70d8440bb9056abff06b917ecacce061}{server.\+server.\+secret\+\_\+key}}
-\begin{DoxyCompactList}\small\item\em Runs the Server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \char`\"{}\+M\+A\+I\+N\char`\"{} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceserver_1_1server_aba3c9bb7c915469f57a050466a1ef6d8}{server.\+server.\+port}} = int(os.\+environ.\+get(\char`\"{}P\+O\+RT\char`\"{}, 5000))
+\item 
+\mbox{\hyperlink{namespaceserver_1_1server_adca03b39e1ec441d3c574a753afb0016}{server.\+server.\+host}}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Server run File that provides the main interface between our app and th Server Includes routing Information and Rendering of H\+T\+ML. 
 
-Runs the Landscrape Main Server.
