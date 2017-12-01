@@ -62,3 +62,6 @@ p {
   background-color: #db851c;
   border-color: #db851c;
 }
+.container .col-md-12 {
+  text-align: center!important;
+}
