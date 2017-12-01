@@ -12,16 +12,14 @@ Landscrape utilizes a web scraper that returns highly rated attractions in a giv
 1. Clone the repository
 2. In a terminal, execute `sudo bash start prep`. This will install the necessary dependencies
 
-As mentioned, you can install Flask via pip inside of a Python Virtual Environment. In order to do this,
-ensure that you have virtualenv version 15.1.0 or later(you can check with `virtualenv --version`). You can activate
-the Virtual Environment by navigating to the `server` folder and typing `source Landscrape/bin/activate`. You can
-deactivate the virtualenv at any time using command `deactivate`.
 
 # Running the Application
 1. Clone the repository
 2. In a terminal, execute `bash start`
 3. Navigate the the LocalHost port designated in the terminal to view the site.
 4. Click on "About" to view our Code Documentation
+
+You can also check out a working version of our app currently deployed on Heroku by navigating to `landscrape.herokuapp.com`
 
 # Stuff We Used
 - Flask: http://flask.pocoo.org/docs/0.12/
@@ -32,7 +30,9 @@ deactivate the virtualenv at any time using command `deactivate`.
 # Testing
 We utilized Python's Built-In Unit Testing Framework in order to test our scraping functionality. Our test suite file is included in the server folder.
 
-You can look at our testing results by clicking on the "Is Landscrape Complete?" Link in our NavBar. This will initiate the test suite and display the results. 
+You can look at our testing results by clicking on the "Is Landscrape Complete?" Link in our NavBar. This will initiate the test suite and display the results.
+
+If you're not into viewing the results online, you can check out our test suite at `Landscrape/server/tests.py` to validate our tests, and have the option of outputting test results to console by running the command `python tests.py`
 
 - Python UnitTest: https://docs.python.org/2/library/unittest.html
 
@@ -44,4 +44,4 @@ You will need to have cloned/forked our repo (which you should have done to run 
 
 From there you can use the navigation bar and go to `Namespaces` then `Namespace List` click on the bottom-most `server` to see all of our classes, functions, variables, etc.
 
-We used doxygen to generate our documentation. 
+We used Doxygen to generate our documentation.
