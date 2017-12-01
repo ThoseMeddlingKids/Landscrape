@@ -44,7 +44,7 @@ class InputForm(Form):
 #                                       FUNCTIONS
 ########################################################
 
-## Function CreateDict
+## @Function CreateDict
 #
 # Creates a new python dictionary with the results from a search query.
 def CreateDict(query, city, state):
@@ -59,7 +59,7 @@ def CreateDict(query, city, state):
 
 # LANDING PAGE
 ##############################################################################
-## Class "/"
+## @Class "/"
 #
 # Main Landing Page for the App
 # Renders Index from Static/index.html
@@ -72,7 +72,7 @@ def index():
 
 #TESTS AND TEST RESULTS ROUTING
 ##############################################################################
-## Class "/about"
+## @Class "/about"
 #
 # Renders the "Is LandScrape Complete?" Page with the results of our testing suite
 #
@@ -81,7 +81,7 @@ def about():
     return render_template("about.html")
 ##############################################################################
 ##############################################################################
-## Class "/testresults"
+## @Class "/testresults"
 #
 # Renders the test results page and handles the running of our test suite from within the app
 @app.route('/testresults', methods = ['GET','POST'])
@@ -114,7 +114,7 @@ def testresults():
 
 # SEARCH AND SEARCH RESULTS ROUTING
 ##############################################################################
-## Class "/search"
+## @Class "/search"
 #
 # Search Page for Landscrape
 # Renders the Search HTML file
@@ -137,7 +137,7 @@ def search():
     return render_template('Search.html', form= form)
 ##############################################################################
 ##############################################################################
-## Class "/loading"
+## @Class "/loading"
 #
 # Placeholder for the time it takes to load results from a search
 @app.route('/loading', methods = ['GET', 'POST'])
@@ -145,7 +145,7 @@ def loading():
     return render_template("loadingpage.html")
 ##############################################################################
 ##############################################################################
-## Class "/searchresults"
+## @Class "/searchresults"
 #
 # Process Data from the Scraping function
 # Renders HTML with Results
@@ -169,7 +169,7 @@ def results():
 ##############################################################################
 ##############################################################################
 ##############################################################################
-## Function "MAIN"
+## @Function "MAIN"
 #
 ## Runs the Server and deploys the app to a local host.
 ## This also deals with the heroku environment setup using the "os" call
