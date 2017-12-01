@@ -58,8 +58,8 @@ class Scraper:
 
         four_res = self.four_get_results(sub_term)
 
-        return four_res
-        #return self.merge(yelp_res,four_res)
+        #return yelp_res
+        return self.merge(yelp_res,four_res)
 
     ## @Function
     #
@@ -71,26 +71,38 @@ class Scraper:
     def merge(self,yelp_list,four_list):
 
         output = []
+        y = yelp_list
+        f = four_list
+        #print yelp_list
+        #print four_list
 
-        # for each search result
-        for sub_yelp in yelp_list:
+        # for each yelp search result
+        for sub_yelp in y:
 
-            tel = sub_yelp["tele"]
-
+            # flag if something has been added
             check = False
 
-            for sub_four in four_list:
+            # compare to each foursquare result
+            for sub_four in f:
 
-                if sub_four["tele"] == tel:
+                # if each
+                if sub_four["tele"] == sub_yelp["tele"]:
 
                     check = True
-
                     output.append(sub_four)
+                    f.remove(sub_four)
+
+
+                    break
                     # do comparison
 
             if not check:
 
                 output.append(sub_yelp)
+
+        for sub_four in f:
+
+            output.append(sub_four)
 
         return output
 
