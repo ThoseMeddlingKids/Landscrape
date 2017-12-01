@@ -16,6 +16,7 @@
           {% for dict in pyDict[key] %}
             <a href="{{dict['sub_url']}}">
               <div class="results">
+                <img src="{{dict['img']}}">
                 {{dict['name']}} {{dict['stars']}}/10.0 <br> {{dict['addr']}}
               </div>
             </a>
