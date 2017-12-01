@@ -1,13 +1,11 @@
 body {
-  background-color: #000;
-  color: yellow;
+  background-color: #AE967E;
+  color: #F5F2EE;
   }
 p {
-  margin-top: 30px;
+  margin-top: 30px!important;
   margin-bottom: 30px;
-  border: 2px solid;
   padding: 10px;
-  border-color: blue;
 }
 .loader {
     width: 100%;
@@ -17,9 +15,7 @@ p {
     position: fixed;
 }
 .results {
-  background-color: #000;
-  border: 2px solid;
-  border-color: blue;
+  background-color: #302310;
   color: #FCB896;
   padding: 2%;
   width: 350px;
@@ -33,35 +29,29 @@ p {
 /* overload bootstrap styles */
 .jumbotron {
   padding: 1rem;
-  background-color: #000;
-  color: yellow;
-  border-radius: 2px;
+  background-color: #CBBBAB;
+  color: #302310;
   padding-bottom: 20px!important;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-color: blue;
   margin-bottom: 3px;
 }
 .bg-dark {
-  background-color: #000!important;
-  color: yellow!important;
-  border-bottom: 2px solid;
-  border-color: blue;
-  margin-bottom: 3px;
+  background-color: #302310!important;
+  color: #F5F2EE!important;
 }
 .navbar-dark .navbar-brand {
-  color: yellow;
+  color: #F5F2EE;
 }
 .btn-success {
-  color: white;
-  background-color: #d03e19;
-  border-color: #d03e19;
+  color: #F5F2EE
+  background-color: #014421;
+  border-color: #014421;
 }
 .btn-primary {
-  color: white;
-  background-color: #db851c;
-  border-color: #db851c;
+  color: #F5F2EE;
+  background-color: #014421;
+  border-color: #014421;
 }
 .container .col-md-12 {
   text-align: center!important;
+  color: #014421;
 }
