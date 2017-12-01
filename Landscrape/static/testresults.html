@@ -32,9 +32,18 @@
     <br /><br />
     <div class = "container col-md-8">
       {% if BooleanTestResults[0] %}
-        <h3>Unit Test 1</h3>
+        <h3>Single Term Tests</h3>
         <p>
-          Scraper Returns Dictionary on Single Input - Passing
+          Dictionary Produced on Single Input - Passing
+        </p>
+        <p>
+          Dictionary is Length One on Single Input - Passing
+        </p>
+        <p>
+          Dictionary Key Links to 3 Sites - Passing
+        </p>
+        <p>
+          Every Piece of Necessary Information Is Present for The Search Term - Passing
         </p>
       {% endif %}
     </div>
@@ -42,9 +51,18 @@
 
     <div class = "container col-md-8">
       {% if BooleanTestResults[1] %}
-        <h3>Unit Test 2</h3>
+        <h3>Multi-Term Tests</h3>
         <p>
-          Scraper Returns Dictionary on Multiple Input - Passing
+          Dictionary Returned on Multiple Input - Passing
+        </p>
+        <p>
+          Dictionary Length Matches Length of Inputs - Passing
+        </p>
+        <p>
+          Every Term Seached For Produces Links to 3 Sites - Passing
+        </p>
+        <p>
+          Every Piece of Necessary Information Is Present for Each Term - Passing
         </p>
       {% endif %}
     </div>

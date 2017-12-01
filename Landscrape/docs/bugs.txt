@@ -1,0 +1,4 @@
+Current Bug List for LandScrape:
+
+1. Test suite runs in a non-trivial amount of time.
+  i. This is due to the fact that queries must be run in order to test scraper output, which is not a short process

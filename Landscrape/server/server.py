@@ -10,7 +10,7 @@ from wtforms import Form, StringField, SelectField, validators
 
 # Importing stuff we made
 from Scraper import scrape
-from tests import TestOutputSingle, TestOutputMulti, TestDictionaryLength
+from tests import TestOutputSingle, TestOutputMulti
 
 #Define Flask App (an essential piece)
 app = Flask(__name__, static_folder="../static", template_folder="../static")
@@ -105,14 +105,12 @@ def testresults():
     # Declare Test suite for each TestCase Class
     suite1 = unittest.TestLoader().loadTestsFromTestCase(TestOutputSingle)
     suite2 = unittest.TestLoader().loadTestsFromTestCase(TestOutputMulti)
-    suite3 = unittest.TestLoader().loadTestsFromTestCase(TestDictionaryLength)
 
     # run the test suites and create a list of result objects
     Test1_Result = unittest.TextTestRunner(verbosity = 1).run(suite1)
     Test2_Result = unittest.TextTestRunner(verbosity = 1).run(suite2)
-    Test3_Result = unittest.TextTestRunner(verbosity = 1).run(suite3)
 
-    ResultOfTesting = [Test1_Result, Test2_Result, Test3_Result]
+    ResultOfTesting = [Test1_Result, Test2_Result]
 
     #Convert results to boolean output which will be passed to page
     BooleanResults = []
@@ -122,8 +120,7 @@ def testresults():
         else:
             BooleanResults.append(False)
 
-    app.logger.info(BooleanResults)
-
+    print BooleanResults
     #pass the boolean array to the page for loading
     return render_template("testresults.html", BooleanTestResults = BooleanResults)
 
