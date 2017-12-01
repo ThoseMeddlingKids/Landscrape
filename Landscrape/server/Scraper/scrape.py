@@ -58,25 +58,42 @@ class Scraper:
 
         four_res = self.four_get_results(sub_term)
 
-
-
         return four_res
+        #return self.merge(yelp_res,four_res)
 
     ## @Function
     #
     # merge
     # @param self The object pointer
-    # @param yelp_dict A dictionary of scraped yelp values
-    # @param four_dict A dictionary of scraped foursquare values
-    # @return info Ordered list of dictionaries
-    def merge(self,yelp_dict,four_dict):
+    # @param yelp_list A dictionary of scraped yelp values
+    # @param four_list A dictionary of scraped foursquare values
+    # @return info Ordered list
+    def merge(self,yelp_list,four_list):
 
-        # for each search term
-        for term in yelp_dict:
+        output = []
 
-            # for each search result
-            for x in yelp_dict[term]:
-                pass
+        # for each search result
+        for sub_yelp in yelp_list:
+
+            tel = sub_yelp["tele"]
+
+            check = False
+
+            for sub_four in four_list:
+
+                if sub_four["tele"] == tel:
+
+                    check = True
+
+                    output.append(sub_four)
+                    # do comparison
+
+            if not check:
+
+                output.append(sub_yelp)
+
+        return output
+
 
 
 
@@ -292,6 +309,7 @@ class Scraper:
             stars = mini_soup.find("div",class_="venueScore positive").text
             addr = mini_soup.find("div",class_="venueAddress").text
             sub_url = "https://foursquare.com" + mini_soup.find("h2").find("a").get("href")
+            img = mini_soup.find("img",class_="photo").get("src")
 
             # Set basic info
             sub_info = {}
@@ -299,6 +317,7 @@ class Scraper:
             sub_info['sub_url'] = sub_url
             sub_info['stars'] = str(stars)
             sub_info['addr'] = addr
+            sub_info['img'] = img
 
             # get the sub page information
             sub_info = self.four_get_sub_page_info(sub_info)
@@ -324,9 +343,9 @@ class Scraper:
         try:
             tel = sub_soup.find_all("span",class_="tel")[0].text
             tel = ''.join( c for c in tel if c.isdigit() )
-            sub_dict["tel"] = tel
+            sub_dict["tele"] = tel
         except (AttributeError,IndexError):
-            sub_dict["tel"] = "No telephone"
+            sub_dict["tele"] = "No telephone"
 
         # Get/Set the restaurant URL
         try:
@@ -339,7 +358,7 @@ class Scraper:
 
 
 
-#yelp_info = Scraper(["coffee,bars,tacos","Lawrence","KS"])
+#yelp_info = Scraper(["burgers","Lawrence","KS"])
 #infor = yelp_info.get_results()
 #for i in infor:
 #    print i,infor[i]
