@@ -7,7 +7,6 @@
   <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename = 'styles.css')}}" "" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="Search.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -67,15 +66,6 @@
       {% endif %}
     </div>
     <br />
-
-    <div class = "container col-md-8">
-      {% if BooleanTestResults[2] %}
-        <h3>Unit Test 3</h3>
-        <p>
-          Scraper Returns Dictionary of Same Length as Number of Inputs - Passing
-        </p>
-      {% endif %}
-    </div>
   </div>
   <br />
 
