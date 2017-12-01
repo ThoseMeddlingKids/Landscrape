@@ -58,7 +58,26 @@ class Scraper:
 
         four_res = self.four_get_results(sub_term)
 
+
+
         return four_res
+
+    ## @Function
+    #
+    # merge
+    # @param self The object pointer
+    # @param yelp_dict A dictionary of scraped yelp values
+    # @param four_dict A dictionary of scraped foursquare values
+    # @return info Ordered list of dictionaries
+    def merge(self,yelp_dict,four_dict):
+
+        # for each search term
+        for term in yelp_dict:
+
+            # for each search result
+            for x in yelp_dict[term]:
+                pass
+
 
 
     ####################################################
@@ -134,7 +153,7 @@ class Scraper:
 
                 # Set basic info
                 sub_info = {}
-                sub_info['name'] = name
+                sub_info['name'] = str(name.encode("ascii","ignore"))
                 sub_info['img'] = img
                 sub_info['stars'] = str(stars)
                 sub_info['tele'] = tel
@@ -276,9 +295,7 @@ class Scraper:
 
             # Set basic info
             sub_info = {}
-            print "'",name,"'"
             sub_info['name'] = str(name.encode("ascii","ignore"))
-            print "'",sub_info['name'],"'"
             sub_info['sub_url'] = sub_url
             sub_info['stars'] = str(stars)
             sub_info['addr'] = addr
@@ -308,25 +325,21 @@ class Scraper:
             tel = sub_soup.find_all("span",class_="tel")[0].text
             tel = ''.join( c for c in tel if c.isdigit() )
             sub_dict["tel"] = tel
-        except AttributeError:
+        except (AttributeError,IndexError):
             sub_dict["tel"] = "No telephone"
 
         # Get/Set the restaurant URL
-
-        #########
-        ###FIX###
-        #########
         try:
-            web_addr = sub_soup.find_all("a",class_="url").get("href")
+            web_addr = sub_soup.find_all("a",class_="url")[0].get("href")
             sub_dict["web_addr"] = web_addr
-        except AttributeError:
+        except (AttributeError,IndexError):
             sub_dict["web_addr"] = "No web address"
 
         return sub_dict
 
 
 
-#yelp_info = Scraper(["milk","Lawrence","KS"])
+#yelp_info = Scraper(["coffee,bars,tacos","Lawrence","KS"])
 #infor = yelp_info.get_results()
 #for i in infor:
 #    print i,infor[i]
